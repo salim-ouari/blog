@@ -18,7 +18,7 @@ if (isset($_POST['connexion'])) {
         if ($password == $resultat['password']) {
 
             $_SESSION['user'] = $resultat;
-            // header('location: profil.php');
+            header('location: profil.php');
             echo "bravo êtes connectés";
         } else {
 
