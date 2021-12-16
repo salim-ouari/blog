@@ -5,15 +5,17 @@ $message = '';
 
 if (
     !empty($_POST['login'])
+    && !empty($_POST['email'])
     && !empty($_POST['password'])
     && !empty($_POST['password_confirm'])
 
 ) {
     $login = htmlspecialchars($_POST['login']);
+    $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $confirm_password = htmlspecialchars($_POST['password_confirm']);
 
-    $requete2 = mysqli_query($bdd, "SELECT * FROM `utilisateurs` WHERE login = '$login'");
+    $requete2 = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
     // recupérer la requete "est ce que j'ai un login déjà existant
     $resultat = mysqli_fetch_all($requete2);
 
@@ -22,7 +24,7 @@ if (
         if ($password == $confirm_password) {
 
             //  alors inscrit le dans ma base de donnée
-            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`) VALUES ('$login','$password') ");
+            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, 'email', `password`) VALUES ('$login','$email','$password) ");
             header('Location: connexion.php');
         } else {
             $message = 'les mots de passe ne sont pas identiques';
@@ -59,7 +61,12 @@ if (
                     <tr>
 
                         <td>Login</td>
-                        <td><input type="text" name="login" placeholder="Ex : deggg@laplate.io" required></td>
+                        <td><input type="text" name="login" placeholder="Ex : laplate" required></td>
+                    </tr>
+                    <tr>
+
+                        <td>Email</td>
+                        <td><input type="text" name="email" placeholder="Ex : deggg@laplate.io" required></td>
                     </tr>
                     <tr>
 

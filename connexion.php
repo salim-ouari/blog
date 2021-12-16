@@ -18,7 +18,10 @@ if (isset($_POST['connexion'])) {
         if ($password == $resultat['password']) {
 
             $_SESSION['user'] = $resultat;
-            header('location: profil.php');
+            // header('location: profil.php'); 
+            var_dump($_SESSION);
+            var_dump($_SESSION['user']['id_droits']);
+            echo 'vous étes connecté';
         } else {
 
             $error = "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
