@@ -3,27 +3,27 @@
 require('connect.php');
 $message = '';
 
-if (
-    !empty($_POST['login'])
-    && !empty($_POST['password'])
-    && !empty($_POST['password_confirm'])
-
-) {
+if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm']))
+{
     $login = htmlspecialchars($_POST['login']);
+    $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
     $confirm_password = htmlspecialchars($_POST['password_confirm']);
 
     $requete2 = mysqli_query($bdd, "SELECT * FROM `utilisateurs` WHERE login = '$login'");
     // recupérer la requete "est ce que j'ai un login déjà existant
-    $resultat = mysqli_fetch_all($requete2);
+    $resultat = mysqli_fetch_assoc($requete2);
 
     // si elle me renvoi rien "pas de login existant"
-    if (count($resultat) == 0) {
+    if ($resultat == false) {
         if ($password == $confirm_password) {
+            // // hashage du mot de passe pour la sécurité
+            // $hash = password_hash($password, PASSWORD_DEFAULT);
 
             //  alors inscrit le dans ma base de donnée
-            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`) VALUES ('$login','$password') ");
+            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$password', '$email', 1)");
             header('Location: connexion.php');
+        
         } else {
             $message = 'les mots de passe ne sont pas identiques';
         }
@@ -56,10 +56,14 @@ if (
         <div id="myid">
             <form class="form" action="inscription.php" method="post">
                 <table>
+                    
                     <tr>
-
                         <td>Login</td>
-                        <td><input type="text" name="login" placeholder="Ex : deggg@laplate.io" required></td>
+                        <td><input type="text" name="login" placeholder="Ex : John" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" placeholder="Ex john@gmx.fr : "></td>
                     </tr>
                     <tr>
 
@@ -67,7 +71,6 @@ if (
                         <td><input type="password" name="password" placeholder="Ex : *****" required></td>
                     </tr>
                     <tr>
-
                         <td>Confirmer mot de passe</td>
                         <td><input type="password" name="password_confirm" placeholder="Ex : *****"></td>
                     </tr>
