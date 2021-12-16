@@ -10,7 +10,7 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     $password = htmlspecialchars($_POST['password']);
     $confirm_password = htmlspecialchars($_POST['password_confirm']);
 
-    $requete2 = mysqli_query($bdd, "SELECT * FROM `utilisateurs` WHERE login = '$login'");
+    $requete2 = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
     // recupérer la requete "est ce que j'ai un login déjà existant
     $resultat = mysqli_fetch_assoc($requete2);
 
