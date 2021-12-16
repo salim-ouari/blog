@@ -17,11 +17,12 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     // si elle me renvoi rien "pas de login existant"
     if ($resultat == false) {
         if ($password == $confirm_password) {
-            // // hashage du mot de passe pour la sécurité
-            // $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            // hashage du mot de passe pour la sécurité
+            $hash = password_hash($password, PASSWORD_DEFAULT);
 
             //  alors inscrit le dans ma base de donnée
-            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$password', '$email', 1)");
+            $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$hash', '$email', 1)");
             header('Location: connexion.php');
         
         } else {
