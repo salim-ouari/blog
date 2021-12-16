@@ -22,10 +22,13 @@ if (isset($_POST['modif'])) {
     } else {
         // condition mdp pas identique
         if ($newpassword != $newpassword_confirm) {
-            $error = "Les mots de passe ne sont pas identiques.";
+            echo  $error = "Les mots de passe ne sont pas identiques.";
         } else {
+            // hashage du mot de passe pour la sécurité
+            $hash = password_hash($newpassword, PASSWORD_DEFAULT);
+
             //requêtes sql pour update utilisateur
-            $requete2 = "UPDATE utilisateurs SET login = '$newlogin', email = '$newemail', password = '$newpassword' WHERE id = $id";
+            $requete2 = "UPDATE utilisateurs SET login = '$newlogin', email = '$newemail', password = '$hash' WHERE id = $id";
             $modifprofil = mysqli_query($bdd, $requete2);
 
             // si requete est valide
@@ -37,7 +40,7 @@ if (isset($_POST['modif'])) {
                 // je réecris les news valeurs dans session
                 $_SESSION['user'] = $resultat;
 
-                header('location: profil.php');
+                header('location: connexion.php');
             }
         }
     }
@@ -61,8 +64,9 @@ if (isset($_POST['modif'])) {
 <body>
 
     <header>
-        <h1 id="ac">PROFIL</h1>
+        <?php include 'header.php'; ?>
     </header>
+    <h1 id="ac">PROFIL</h1>
     <main>
         <div id="myid">
             <form class="form" action="profil.php" method="post">
