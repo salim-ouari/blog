@@ -1,3 +1,9 @@
+<!-- - Une page permettant de modifier son profil (profil.php) :
+
+Cette page possède un formulaire permettant à l’utilisateur de modifier
+l’ensemble de ses informations. -->
+
+
 <?php
 session_start();
 $error = "";
