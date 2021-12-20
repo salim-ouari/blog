@@ -15,16 +15,18 @@ if (isset($_POST['connexion'])) {
         $requete = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
         $resultat = mysqli_fetch_assoc($requete);
 
-        if ($password == $resultat['password']) {
+        // hashage du mot de passe pour la sécurité
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        if (password_verify($password, $hash)) {
 
             $_SESSION['user'] = $resultat;
             header('location: profil.php');
+            echo "bravo vous êtes connectés";
         } else {
 
             $error = "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
         }
-    } else {
-        $error = 'probléme connexion';
     }
 }
 
