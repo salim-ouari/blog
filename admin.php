@@ -39,7 +39,12 @@
         <td><?php echo $row['password'] ;?></td>
         <td><?php echo $row['email'] ;?></td>
         <td><?php echo $row['id_droits'] ;?></td>
-        <td></td>
+        <td>
+        <a href="admin.php?edit=<?php echo $row['id']; ?>"
+            class="btn btn-info">Modifier</a>
+        <a href="admin.php?delete=<?php echo $row['id']; ?>"
+            class="btn btn-danger">Supprimer</a>
+        </td>
     </tr>
 
     <?php  endwhile; ?>
@@ -58,27 +63,27 @@
     ?>    
     
         <form action="process.php" method="POST">
-        <div class="form-group">
-        <label>login</label>  
-        <input type="text" name="login" class="form-control" placeholder="Entrez votre login">
-        </div>
-        <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control" placeholder="Entrez votre email">
-        </div>
-        <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" class="form-control">
-        </div>
-        <div class="form-group">
-        <label>Droit</label>
-        <input type="text" name="id_droits" class="form-control">
-        </div>
-        <div class="form-group">
-        <button type="submit" class="btn btn-primary" name="save">Save</button>
-        </div> 
+            <div class="form-group">
+            <label>login</label>  
+            <input type="text" name="login" class="form-control" placeholder="Entrez votre login">
+            </div>
+            <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+            <label>Droit</label>
+            <input type="text" name="id_droits" class="form-control">
+            </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="save">Save</button>
+            </div> 
         </form>
-     </div>   
-     </div>
+</div>
+</div> 
 </body>
 </html>
