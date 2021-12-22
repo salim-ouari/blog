@@ -20,16 +20,16 @@ pages du blog -->
         <div class="bloc_footer_nav">
             <h4 class="h4-nav">Navigation</h4>
             <ul class="list-nav">
-                <li><a href="index.php">Accueil</a></li>
+
                 <?php
                 if (empty($_SESSION)) {
                 ?>
-
+                    <li><a href="index.php">Accueil</a></li>
                     <li><a href="inscription.php">Inscription</a></li>
                     <li><a href="connexion.php">Connexion</a></li>
 
                 <?php } else { ?>
-
+                    <li><a href="index.php">Accueil</a></li>
                     <li><a href="profil.php">Mon profil</a></li>
                     <li><a href="deconnect.php">Déconnexion</a></li>
 

@@ -47,14 +47,12 @@ if (isset($_POST['connexion'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <header>
-        <?php include 'header.php'; ?>
-    </header>
 
+    <?php include 'header.php'; ?>
 
     <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
         <h1 id="ac">CONNEXION</h1>

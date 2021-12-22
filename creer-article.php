@@ -45,9 +45,9 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <header>
-        <?php include 'header.php'; ?>
-    </header>
+
+    <?php include 'header.php'; ?>
+
     <main class="main-com" style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
 
         <div class="container">

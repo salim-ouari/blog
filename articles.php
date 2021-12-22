@@ -47,9 +47,9 @@ session_start();
     <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
 
     </main>
-    <footer>
-        <?php include 'footer.php'; ?>
-    </footer>
+
+    <?php include 'footer.php'; ?>
+
 
 </body>
 

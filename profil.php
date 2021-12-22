@@ -69,9 +69,9 @@ if (isset($_POST['modif'])) {
 
 <body>
 
-    <header>
-        <?php include 'header.php'; ?>
-    </header>
+
+    <?php include 'header.php'; ?>
+
     <h1 id="ac">PROFIL</h1>
     <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
         <div id="myid">
@@ -105,7 +105,7 @@ if (isset($_POST['modif'])) {
             </form>
         </div>
     </main>
-    <footer>
-        <?php include 'footer.php'; ?>
-    </footer>
+
+    <?php include 'footer.php'; ?>
+
 </body>

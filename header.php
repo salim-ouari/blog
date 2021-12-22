@@ -8,7 +8,22 @@ les droits de modérateur, il doit avoir accès à la page creer-article, si il 
 administrateur, il peut également accéder à la page admin. Le header doit
 être présent dans chacune des pages du blog. -->
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+</body>
+
+</html>
 <header>
     <div>
         <h1 id="title">BLOG</h1>

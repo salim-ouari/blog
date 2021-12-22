@@ -11,8 +11,7 @@ données et l’utilisateur est dirigé vers la page de connexion. -->
 require('connect.php');
 $message = '';
 
-if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm']))
-{
+if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
     $login = htmlspecialchars($_POST['login']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
@@ -32,7 +31,6 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
             //  alors inscrit le dans ma base de donnée
             $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$hash', '$email', 1)");
             header('Location: connexion.php');
-        
         } else {
             $message = 'les mots de passe ne sont pas identiques';
         }
@@ -56,16 +54,14 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
 
 <body>
 
-    <header>
-        <?php include 'header.php'; ?>
-    </header>
+    <?php include 'header.php'; ?>
 
     <main>
         <h1 id="ac">INSCRIPTION</h1>
         <div id="myid">
             <form class="form" action="inscription.php" method="post">
                 <table>
-                    
+
                     <tr>
                         <td>Login</td>
                         <td><input type="text" name="login" placeholder="Ex : John" required></td>
