@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
     <header>
         <?php include 'header.php'; ?>
     </header>
-    <main class="main-com">
+    <main class="main-com" style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
 
         <div class="container">
             <h1 class="comh1">POST TON ARTICLE !!!</h1>

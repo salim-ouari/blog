@@ -73,7 +73,7 @@ if (isset($_POST['modif'])) {
         <?php include 'header.php'; ?>
     </header>
     <h1 id="ac">PROFIL</h1>
-    <main>
+    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
         <div id="myid">
             <form class="form" action="profil.php" method="post">
                 <h2 class="mypro">MON PROFIL</h2>
@@ -103,3 +103,9 @@ if (isset($_POST['modif'])) {
                     <button type="submit" name="modif">modifier</button>
                 </div>
             </form>
+        </div>
+    </main>
+    <footer>
+        <?php include 'footer.php'; ?>
+    </footer>
+</body>

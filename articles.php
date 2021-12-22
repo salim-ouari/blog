@@ -25,4 +25,32 @@ Les autres articles seront dans page 2, 3, 4 ...
 - SYSTEME DE TRIE
 
 Trie des articles par catégorties (par ID)       -->
+<?php
+session_start();
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <?php include 'header.php'; ?>
+    </header>
+    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
+
+    </main>
+    <footer>
+        <?php include 'footer.php'; ?>
+    </footer>
+
+</body>
+
+</html>

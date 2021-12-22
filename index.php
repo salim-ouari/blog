@@ -23,7 +23,7 @@ session_start();
     <header>
         <?php include 'header.php'; ?>
     </header>
-    <main style="border:2px solid pink; padding: 30px; height: 50vh;">
+    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
 
     </main>
     <footer>

@@ -55,9 +55,10 @@ if (isset($_POST['connexion'])) {
         <?php include 'header.php'; ?>
     </header>
 
-    <h1 id="ac">CONNEXION</h1>
 
-    <main>
+    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
+        <h1 id="ac">CONNEXION</h1>
+
         <div id="myid">
             <form class="form" action="connexion.php" method="post">
                 <table>
@@ -89,7 +90,7 @@ if (isset($_POST['connexion'])) {
             quibusdam.
         </p>
     </main>
-    <!-- <?php include 'footer.php'; ?> -->
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

@@ -1,9 +1,7 @@
 <!-- - Un footer (footer.php) :
-
 Il contient un accès aux différentes pages. Il doit être inclus dans toutes les
 pages du blog -->
 
-<!-- 3 : Affichage du footer en mode 'déconnecté' -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +20,39 @@ pages du blog -->
         <div class="bloc_footer_nav">
             <h4 class="h4-nav">Navigation</h4>
             <ul class="list-nav">
-                <li><a href="../index.php">Accueil</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <?php
+                if (empty($_SESSION)) {
+                ?>
+
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="connexion.php">Connexion</a></li>
+
+                <?php } else { ?>
+
+                    <li><a href="profil.php">Mon profil</a></li>
+                    <li><a href="deconnect.php">Déconnexion</a></li>
+
+
+                <?php  }
+
+                ?>
+                <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] == 1337) { ?>
+
+                    <li><a href="article.php">Article</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href="articles.php">Articles</a></li>
+
+                <?php } ?>
+                <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] != 1) { ?>
+
+                    <li><a href="creer-article.php">creer article</a></li>
+
+                <?php } ?>
+
+
+                <!-- <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li> -->
             </ul>
         </div>
         <div class="bloc_footer_media">
@@ -38,7 +66,7 @@ pages du blog -->
             </ul>
         </div>
     </footer>
-    <!-- 3 : Fin de l'affichage du footer en mode 'déconnecté' -->
+
 </body>
 
 </html>
