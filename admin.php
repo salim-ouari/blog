@@ -10,8 +10,23 @@
 <body>
 
     <?php require_once 'process.php';?>
+
+    <?php
+
+    if (isset($_SESSION['message'])): ?>
+
+<div class="alert alert-<?=$_SESSION['msg_type']?>">
+
+    <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    ?>
+
+</div>
+
+<?php endif ?>
+
     <div class="container">
-    <div class="row justify-content-center ">
     <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli)); 
     $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
     //pre_r($result);
@@ -29,6 +44,7 @@
                 <th colspan="2">Action</th>
             </tr>
     </thead>
+    
     <?php 
 
     while ($row = $result->fetch_assoc()):?>
@@ -61,26 +77,27 @@
             echo '<pre>';
         }
     ?>    
-    
+        <div class="row justify-content-center">
         <form action="process.php" method="POST">
             <div class="form-group">
             <label>login</label>  
-            <input type="text" name="login" class="form-control" placeholder="Entrez votre login">
+            <input type="text" name="login" class="form-control"  value="<?php echo $login; ?>" placeholder="Entrez votre login">
             </div>
             <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" class="form-control" placeholder="Entrez votre email">
+            <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="Entrez votre email">
             </div>
             <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" class="form-control">
+            <input type="password" name="password" value="<?php echo $password; ?>" class="form-control">
             </div>
             <div class="form-group">
             <label>Droit</label>
-            <input type="text" name="id_droits" class="form-control">
+            <input type="text" name="id_droits" value="<?php echo $id_droits; ?>" class="form-control">
             </div>
             <div class="form-group">
             <button type="submit" class="btn btn-primary" name="save">Save</button>
+            </div>
             </div> 
         </form>
 </div>
