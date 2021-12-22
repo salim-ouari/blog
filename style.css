@@ -42,3 +42,73 @@ nav ul a:hover {
   /* font-family: "Bebas Neue", cursive; */
   font-size: 3.2em;
 }
+
+/* ****************FOOTER************************ */
+
+footer {
+  height: 40vh;
+  background-color: #101820ff;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bloc_footer_nav,
+.bloc_footer_media {
+  text-align: center;
+  margin-top: 12vh;
+}
+
+.bloc_footer_nav a {
+  font-weight: bold;
+  color: rgb(195, 76, 242);
+  text-decoration: none;
+  background: linear-gradient(to top, rgb(195, 76, 242) 10%, transparent 10.01%)
+    no-repeat left bottom/ 0 100%;
+}
+
+.bloc_footer_nav a:hover {
+  transition: 0.5s ease-out;
+  color: rgb(160, 160, 160);
+  background-size: 100% 100%;
+}
+
+.h4-nav {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.list-nav {
+  list-style: none;
+  margin-left: -5%;
+  gap: 7vh;
+}
+
+.list-nav a {
+  font-size: 2.5vh;
+  color: rgb(181, 76, 242);
+  text-decoration: none;
+}
+
+.h4 {
+  color: rgb(181, 76, 242);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.list-icons {
+  list-style: none;
+  gap: 5vh;
+  margin-left: -5%;
+}
+
+.list-icons i {
+  color: white;
+  font-size: 5vh;
+}
+
+.list-icons i:hover {
+  transition: 0.5s ease-out;
+  color: rgb(181, 76, 242);
+}
