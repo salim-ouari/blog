@@ -79,6 +79,7 @@
     ?>    
         <div class="row justify-content-center">
         <form action="process.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="form-group">
             <label>login</label>  
             <input type="text" name="login" class="form-control"  value="<?php echo $login; ?>" placeholder="Entrez votre login">
@@ -96,7 +97,15 @@
             <input type="text" name="id_droits" value="<?php echo $id_droits; ?>" class="form-control">
             </div>
             <div class="form-group">
+            <?php 
+            if ($update == true):
+            ?>
+            <button type="submit" class="btn btn-info" name="update">Update</button>
+            <?php else: ?>
+
             <button type="submit" class="btn btn-primary" name="save">Save</button>
+
+            <?php endif;?>
             </div>
             </div> 
         </form>
