@@ -12,60 +12,33 @@ pourrons créer un article qui va s'insérer dans la page des articleS
 (Une page qui va ressembler à la page commentaire du livre d'or)  -->
 
 <?php
-session_start();
-var_dump($_SESSION['user']['id_droits']);
-
-// connecte toi à la bdd
 require('connect.php');
-$error = '';
+session_start();
 
-if (isset($_POST['submit'])) {
-    if (!empty($_POST['comment'])) {
-        $comment = $_POST['comment'];
-        $id = $_SESSION['user']['id_droits'];
-        $requete = mysqli_query($bdd, "INSERT INTO articles(article, id_utilisateur, date) VALUES ('$comment', '$id', NOW())");
-        header('articles.php');
-    } else {
-        $error = 'veuillez remplir le champs';
+if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id_droits']) == 42) {
+
+    // ************sélect la liste des catégories****************
+    $requete = mysqli_query($bdd, "SELECT * FROM 'categories'");
+    $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+
+    if (isset($_GET['submit'])) {
     }
-}
-
 ?>
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>créer article</title>
+    </head>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <body>
 
-    <title>Créer article</title>
-</head>
+    </body>
 
-<body>
+    </html>
 
-    <?php include 'header.php'; ?>
-
-    <main class="main-com" style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
-
-        <div class="container">
-            <h1 class="comh1">POST TON ARTICLE !!!</h1>
-            <p id="postcom">N’hésite pas à utiliser ce formulaire pour poster un article qui apparaîtra sur la page articles !</p>
-            <form action="" method="post">
-
-                <div class="bloc-com">
-                    <label for="comment">Votre article</label>
-                    <textarea id="message" name="comment" placeholder="Ecrivez ici..." required></textarea>
-                </div>
-                <div class="poster">
-                    <button type="submit" name="submit" id="comm">Poster</button>
-                </div>
-            </form>
-        </div>
-    </main>
-    <?php include 'footer.php'; ?>
-</body>
-
-</html>
+<?php }
