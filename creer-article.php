@@ -11,19 +11,21 @@ session_start();
 if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id_droits']) == 42) {
 
     $msg = '';
-    $article = $_POST['article'];
-    $id_user = $_SESSION['user']['login'];
-    $cat = $_POST['categorie'];
 
     // ***************si user appyuie sur bouton submit***************
     if (isset($_POST['submit'])) {
 
-
         // *************et si le champ cat et article est correctement rempli**********
-        if (!empty($article) && ($cat)) {
+        if (!empty($_POST['article']) && ($_POST['categorie'])) {
+
+            $article = $_POST['article'];
+            $id_user = $_SESSION['user']['id'];
+            $cat = $_POST['categorie'];
+
             // **************insére l'article dans ma base de données*************
-            $requete2 = mysqli_query($bdd, "INSERT INTO articles ('article','id_utilisateur','id_categorie','date') VALUES ('$article', '$id_user',
+            $requete2 = mysqli_query($bdd, "INSERT INTO articles(article,id_utilisateur,id_categorie,date) VALUES ('$article', '$id_user',
             '$cat', NOW())");
+
             // $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
             echo $msg = 'article bien posté';
             var_dump($requete2);
@@ -49,8 +51,8 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
 </head>
 
 <body>
-    <?php include('header.php'); ?>
 
+    <?php include 'header.php'; ?>
     <main>
         <form action="creer-article.php" method="post">
             <select name="categorie">
@@ -66,7 +68,7 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
             <?php ?>
         </form>
     </main>
-    <?php include('footer.php'); ?>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
