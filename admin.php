@@ -60,6 +60,8 @@
             class="btn btn-info">Modifier</a>
         <a href="admin.php?delete=<?php echo $row['id']; ?>"
             class="btn btn-danger">Supprimer</a>
+            <a href="admin.php?edit=<?php echo $row['id']; ?>"
+            class="btn btn-info">Creer un article</a>
         </td>
     </tr>
 
