@@ -1,32 +1,58 @@
-<!-- - Une page contenant les articles (articles) :
-
-Sur cette page, les utilisateurs peuvent voir "L'ENSEMBLE DES ARTICLES", 
-triés du plus récents au plus anciens.
-
-S’il y a plus de 5 articles, seuls les 5 premiers
-sont affichés et un système de pagination permet d’afficher les 5 suivants
-(ou les 5 précédents). Pour cela, il faut utiliser l’argument GET “start”.
-ex : https://localhost/blog/articles.php/?start=5 affiche les articles 6 à 10.
-
-La page articles peut également filtrer les articles par catégorie à l’aide de
-l’argument GET “categorie” qui utilise les id des categories.
-ex : https://localhost/blog/articles.php/?categorie=1&start=10 affiche les
-articles 11 à 15 ayant comme id_categorie 1). 
-
-
-//// Petit resumé personnel
-
-- SYSTEME DE PAGINITION = Affichage des 5 articles
-
-Les autres articles seront dans page 2, 3, 4 ...
-
- avec 
-
-- SYSTEME DE TRIE
-
-Trie des articles par catégorties (par ID)       -->
 <?php
+require('connect.php');
 session_start();
+
+//On selectionne la totalité des infos des catégories afin des les afficher dans nos inputs
+$requete_categories = mysqli_query($bdd, "SELECT * FROM categories");
+
+//on récupere le résultat en gardant le nom de nos index
+$result_categories = mysqli_fetch_all($requete_categories, MYSQLI_ASSOC);
+
+//Puis on boucle de l'index du résultat de notre requête afin de créer le nombre d'input équivalent au nombre de catégorie
+$i = 0;
+while (isset($result_categories[$i])) {
+?>
+    <button type="submit" name="categories" value="<?= $result_categories[$i]['id'] ?>"><?= $result_categories[$i]['nom'] ?></button>
+<?php
+    $i++;
+}
+
+
+ //Si une catégorie est définie
+ if (isset($_GET['categories'])){
+
+    //Alors on récupere la valeur de l'url et on l'assimile à notre variable 'id de categorie'
+    $id = $_GET['categories'];
+
+
+// ***********requete pour compter les article pour préparer la pagination
+$requete_count_art = mysqli_query($bdd, "SELECT COUNT(*) AS nbre_art FROM articles WHERE id_categorie = '$id'");
+$result_count_art = mysqli_fetch_array($requete_count_art, MYSQLI_ASSOC);
+var_dump($result_count_art);
+// **************************pagination***********************************
+// ************************SI page définie************************
+if (isset($_GET['page'])) {
+
+    $page = $_GET['page'];
+}  // ****************SINON SI 1er fois qu'on charge la page - on affiche pr la 1er fois**************
+else {
+
+    $page = 1;
+}
+$article_par_page = 5;
+// **********fonction system pour arrondir au chiffre entier**********************
+$nbre_page = ceil($result_count_art[0]["nbre_art"] / $article_par_page);
+$calc_art_page = ($page - 1) * $article_par_page;
+
+// **********requete pr trier les articles*******************************
+$requete_tri_art = mysqli_query($bdd, "SELECT * FROM articles ORDER BY date  DESC LIMIT $calc_art_page , $article_par_page");
+$result_tri_art = mysqli_fetch_all($requete_tri_art, MYSQLI_ASSOC);
+// var_dump($result_tri_art);
+
+if (count($result_tri_art) == 0) {
+    header("location: articles.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +67,16 @@ session_start();
 </head>
 
 <body>
+
+    <!-- <form action="get">
+        <input type="submit" name="all" value="Tout"></input>
+        <input type="submit" name="cat" value="Cinéma"></input>
+        <input type="submit" name="cat" value="Series"></input>
+        <input type="submit" name="cat" value="Animes"></input>
+
+
+    </form> -->
+    <input type='hidden' name='page' value='1'>
 
     <?php include 'header.php'; ?>
 
