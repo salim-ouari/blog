@@ -9,7 +9,7 @@ données et l’utilisateur est dirigé vers la page de connexion. -->
 <?php
 
 require('connect.php');
-$message = '';
+$error = '';
 
 if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
     $login = htmlspecialchars($_POST['login']);
@@ -32,10 +32,10 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
             $requete = mysqli_query($bdd, "INSERT INTO `utilisateurs`(`login`, `password`, `email`, `id_droits`) VALUES ('$login', '$hash', '$email', 1)");
             header('Location: connexion.php');
         } else {
-            $message = 'les mots de passe ne sont pas identiques';
+            $error = 'Les mots de passe ne sont pas identiques';
         }
     } else {
-        $message = 'compte déjà existant';
+        $error = 'Compte déjà existant';
     }
 }
 
@@ -85,7 +85,7 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
                     <button type="submit" name="Inscription">Inscription</button>
 
                     <?php
-                    echo "<p class='error'>$message</p>";
+                       echo "<br> <p class='msg'>" . $error . '</p> <br>';
                     ?>
                 </div>
             </form>
