@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<!-- - Une page d’administration (admin.php) :
-
-Cette page permet aux administrateurs de gérer l’ensemble du site
-(modification et suppression d’articles, création/modification et suppression
-de catégories, d’utilisateurs, droits…) -->
-=======
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -67,8 +60,8 @@ de catégories, d’utilisateurs, droits…) -->
             class="btn btn-info">Modifier</a>
         <a href="admin.php?delete=<?php echo $row['id']; ?>"
             class="btn btn-danger">Supprimer</a>
-            <a href="admin.php?edit=<?php echo $row['id']; ?>"
-            class="btn btn-info">Creer un article</a>
+            <a href="creat.php"<?php echo $row['id']; ?>"
+            class="btn btn-success">Creer un article</a>
         </td>
     </tr>
 
@@ -122,4 +115,3 @@ de catégories, d’utilisateurs, droits…) -->
 </div> 
 </body>
 </html>
->>>>>>> hugo
