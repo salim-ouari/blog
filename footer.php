@@ -18,7 +18,6 @@ pages du blog -->
     <footer>
 
         <div class="bloc_footer_nav">
-            <h4 class="h4-nav">Navigation</h4>
             <ul class="list-nav">
 
                 <?php
@@ -56,7 +55,6 @@ pages du blog -->
             </ul>
         </div>
         <div class="bloc_footer_media">
-            <h4 class="h4">Réseaux sociaux</h4>
             <ul class="list-icons">
                 <li><a href="https://www.facebook.com/LaPlateformeIO"><i class="fab fa-facebook-square"></i></a></li>
                 <li><a href="https://github.com/salim-ouari/blog"><i class="fab fa-github-square"></i></a></li>
