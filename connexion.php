@@ -5,40 +5,59 @@ formulaire est validé, s’il existe un utilisateur en bdd correspondant à ces
 informations, alors l’utilisateur devient connecté et une (ou plusieurs)
 variables de session sont créées. -->
 
-
 <?php
+
 session_start();
 $error = '';
 
-// si le bouton "connexion" est appuyé
+
 if (isset($_POST['connexion'])) {
 
     $login = htmlspecialchars($_POST['login']);
     $password = htmlspecialchars($_POST['password']);
 
-    if ($login != NULL && $password != NULL) {
-        // connecte toi à la bdd
+
+    if (isset($_POST['login']) && isset($_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])) {
+
+
         require('connect.php');
-        // requet pr rechercher si user existe
+
+
         $requete = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$login'");
+
         $resultat = mysqli_fetch_assoc($requete);
 
-        // hashage du mot de passe pour la sécurité
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        if ($resultat) {
 
-        if (password_verify($password, $hash)) {
+            if ((password_verify($password, $resultat['password'])) && ($login == $resultat['login'])) {
 
-            $_SESSION['user'] = $resultat;
-            header('location: profil.php');
-            echo "bravo vous êtes connectés";
+                $_SESSION['user'] = $resultat;
+
+                header('location: profil.php');
+            } else {
+
+                $error = "Mot de passe ou Login incorrect !";
+            }
         } else {
 
-            $error = "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
+            $error = "Mot de passe ou Login incorrect !";
+        }
+
+        if (isset($resultat['login']) && $resultat['login'] == 'admin') {
+
+            header('Location: admin.php');
         }
     }
 }
 
+
+
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +82,7 @@ if (isset($_POST['connexion'])) {
                     <tr>
 
                         <td>Login</td>
-                        <td><input type="text" name="login" placeholder="Ex : deggg@laplate.io" required></td>
+                        <td><input type="text" name="login" placeholder="Ex : John" required></td>
                     </tr>
                     <tr>
 
@@ -76,8 +95,12 @@ if (isset($_POST['connexion'])) {
                     <button type="submit" name="connexion">Connexion</button>
                 </div>
             </form>
-            <p class="error">
-                <?php echo $error;   ?></p>
+
+            <?php
+            echo "<br> <p class='msg'>" . $error . '</p> <br>';
+            ?>
+
+        </div>
         </div>
         <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia consectetur maxime, tempore consequatur impedit.
             Voluptatem qui asperiores nobis quia mollitia distinctio inventore nam temporibus quis veniam ut, tenetur fugiat praesentium
@@ -89,6 +112,7 @@ if (isset($_POST['connexion'])) {
         </p>
     </main>
     <?php include 'footer.php'; ?>
+
 </body>
 
 </html>
