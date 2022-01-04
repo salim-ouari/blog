@@ -28,7 +28,7 @@ if (isset($_POST['modif'])) {
     } else {
         // condition mdp pas identique
         if ($newpassword != $newpassword_confirm) {
-            echo  $error = "Les mots de passe ne sont pas identiques.";
+            $error = "Les mots de passe ne sont pas identiques.";
         } else {
             // hashage du mot de passe pour la sécurité
             $hash = password_hash($newpassword, PASSWORD_DEFAULT);
@@ -46,7 +46,7 @@ if (isset($_POST['modif'])) {
                 // je réecris les news valeurs dans session
                 $_SESSION['user'] = $resultat;
 
-                header('location: connexion.php');
+                header('location: index.php');
             }
         }
     }
@@ -100,9 +100,14 @@ if (isset($_POST['modif'])) {
                     </tr>
                 </table>
                 <div id="but">
-                    <button type="submit" name="modif">modifier</button>
+                    <button type="submit" name="modif">Modifier</button>
                 </div>
             </form>
+
+            <?php
+            echo "<br> <p class='msg'>" . $error . '</p>';
+            ?>
+
         </div>
     </main>
 
