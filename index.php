@@ -22,7 +22,9 @@ un lien vers la page articles. -->
 
     <?php include 'header.php'; ?>
 
-    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
+    <main>
+
+    <h2  class="h2index">Découvrez vitte <a class="a-index" href="articles.php"> les articles</a> de notre blog ! </h2>
 
     </main>
 
