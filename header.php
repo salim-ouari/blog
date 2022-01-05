@@ -30,7 +30,7 @@ administrateur, il peut également accéder à la page admin. Le header doit
         <h1 id="title"><span>B</span>LOG</h1>
     </div>
 
-    <nav id="desktop">
+    <nav id="navhead">
         <a href="index.php">
             <i class="fa fa-home" aria-hidden="true"></i>
             Accueil
@@ -73,19 +73,20 @@ administrateur, il peut également accéder à la page admin. Le header doit
             <a href="creer-article.php">
                 <i class="fas fa-plus-circle" aria-hidden="true"></i>Ajouter Article</a>
 
-        <?php } ?>
-        <ul id="firstMenu">
+        <?php }
+        ?>
+        <ul id="menucat">
 
             <li><i class="fa fa-book" aria-hidden="true"></i>Categories</li>
 
-            <ul id="dropMenu">
-                <li><a href="">Tous</a></li>
+            <ul id="listcat">
+                <li><a href="articles.php">Tous</a></li>
 
-                <li><a href="">Cinéma</a></li>
+                <li><a href="articles.php?categorie=cinéma+&page=1&submit=">Cinéma</a></li>
 
-                <li><a href="">Series</a></li>
+                <li><a href="articles.php?categorie=series+&page=1&submit=">Series</a></li>
 
-                <li><a href="">Anims</a></li>
+                <li><a href="articles.php?categorie=anim+&page=1&submit=">Anims</a></li>
             </ul>
 
         </ul>
