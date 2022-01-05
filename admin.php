@@ -8,6 +8,7 @@
     <title>Admin Crud</title>
 </head>
 <body>
+<?php include 'header.php'; ?>
 
     <?php require_once 'process.php';?>
 
