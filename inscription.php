@@ -10,7 +10,7 @@ données et l’utilisateur est dirigé vers la page de connexion. -->
 
 require('connect.php');
 $error = '';
- 
+
 
 
 if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
@@ -42,7 +42,6 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -56,51 +55,49 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body class="bodyinscri">
 
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
-<main>
+    <main>
 
         <div class="box-a">
 
             <div class="boxy">
 
                 <h1 class="h1inscr">Inscription</h1>
-
                 <h2 class="h2inscri">Je te laisse t'inscrire Al Pacino ! </h2>
-                    
-                    <form method="post" action="inscription.php" class="form-inscri" method="post" >
 
-                        <input type="text" name="login" placeholder='Login : "Johny"' ><br>
-                        
-                        <input type="email" name="email" placeholder='Email : "Depp@gmail.com"' required><br>
-                        <input type="password" name="password" placeholder='Mot de passe : *****' required><br>
-                        <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
+                <form method="post" action="inscription.php" class="form-inscri" method="post">
 
-                        <div class="message">
-                        <?php
-                        echo "<p class='msg'>". $error. '</p>' ;
-                        ?>
-                        </div>
+                    <input type="text" name="login" placeholder='Login : "Johny"' required><br>
+                    <input type="email" name="email" placeholder='Email : "Depp@gmail.com"' required><br>
+                    <input type="password" name="password" placeholder='Mot de passe : *****' required><br>
+                    <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
 
-                        <div id="buttoninscri">
-                        <input class="inputinscr" name="submit" type="submit" value="S'inscrire">
-                        </div> 
+                    <div class="message">
+                    <?php echo "<p class='msg'>" . $error . '</p>';?>
+                    </div>
 
-                    </form>
+                    <div id="buttoninscri">
+                    <input class="inputinscr" name="submit" type="submit" value="S'inscrire">
+                    </div>
 
-            <div>
+                </form>
+
+            </div>
 
         </div>
 
-    </main>           
+    </main>
 
 
+                <div>
+                    <?php include 'footer.php'; ?>
+                </div>
 </body>
 
-<div>
-<?php include 'footer.php'; ?>
-</div>
+
 
 </html>
