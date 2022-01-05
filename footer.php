@@ -18,7 +18,7 @@ pages du blog -->
     <footer>
 
         <div class="bloc_footer_nav">
-            <h4 class="h4-nav">Navigation</h4>
+
             <ul class="list-nav">
 
                 <?php
@@ -39,7 +39,6 @@ pages du blog -->
                 ?>
                 <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] == 1337) { ?>
 
-                    <!-- <li><a href="article.php">Article</a></li> -->
                     <li><a href="admin.php">Admin</a></li>
                     <li><a href="articles.php">Articles</a></li>
 
@@ -50,13 +49,9 @@ pages du blog -->
 
                 <?php } ?>
 
-
-                <!-- <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li> -->
             </ul>
         </div>
         <div class="bloc_footer_media">
-            <h4 class="h4">Réseaux sociaux</h4>
             <ul class="list-icons">
                 <li><a href="https://www.facebook.com/LaPlateformeIO"><i class="fab fa-facebook-square"></i></a></li>
                 <li><a href="https://github.com/salim-ouari/blog"><i class="fab fa-github-square"></i></a></li>

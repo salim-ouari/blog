@@ -198,12 +198,6 @@ li {
   background-size: 100% 100%;
 }
 
-.h4-nav {
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-}
-
 .list-nav {
   list-style: none;
   margin-left: -5%;
@@ -214,12 +208,6 @@ li {
   font-size: 2.5vh;
   color: #e50915;
   text-decoration: none;
-}
-
-.h4 {
-  color: #e50915;
-  font-size: 25px;
-  font-weight: bold;
 }
 
 .list-icons {
