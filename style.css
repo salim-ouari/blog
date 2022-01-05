@@ -170,13 +170,225 @@ align-items: center;
 
 /************** INDEX ************/
 
+.h2index {
+margin-top: 22.5%;
+font-size: 20px;
+margin-left: 35%;
+}
+
+.a-index {
+text-decoration: none;
+color: red;
+}
 
 
 /************* INSCRIPTION *********/
 
 
+.bodyinscri {
+    background-color: white;
+    }
+    
+    .boxy {
+    padding: 15px;
+    margin-left: 30%;
+    background: rgba(201, 201, 211, 0.5);
+    border-radius: 20px;
+    margin-right: 25%;
+    }
+    
+    .box-a {
+    margin-bottom: 7%;
+    padding: 15px;
+    }
+    
+    .h1inscr{
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 1px 1px 10px #141414;
+    color: #d81111;
+    font-size: 40px;
+    font-family: 'tahoma';
+    margin-top: 3%;
+    text-align: center;
+    }
+    
+    
+    .h2inscri {
+    font-family: 'tahoma';
+    text-align: center;
+    margin-top: 3%;
+    }
+    
+    
+    .form-inscri {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    height: 350px;
+    border-radius: 0px;
+    text-align: center;
+    border-radius: 30px;
+    margin-top: 2%;
+    }
+    
+    input {
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    padding: 1rem;
+    width: 200px;
+    border-radius: 50px; 
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    margin-bottom: 2em;
+
+    }
+    
+    input:hover,
+    input[type="login"]:focus,
+    input[type="password"]:focus{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+
+    }
+    
+    input[type="button"] {
+    margin-top: 10px;
+    width: 150px;
+    font-size: 1rem;
+ 
+    }
+    
+    ::placeholder {
+    color: #fff;
+    }
+    
+    
+    #buttoninscri {
+    margin-left: 5%;
+    margin-top: 7%;
+    
+    }
+    
+    
+    .inputinscr {
+    color: #e21313;
+    font-family: Impact;
+    font-size: 20px;
+    cursor: pointer;
+
+    }
 
 /*********** CONNEXION ***********/
+
+
+
+.bodycon {
+background-color: white;
+}
+
+.boxy {
+padding: 15px;
+margin-left: 30%;
+background: rgba(201, 201, 211, 0.5);
+border-radius: 20px;
+margin-right: 25%;
+}
+
+.box-a {
+margin-bottom: 7%;
+padding: 15px;
+}
+
+.h1inscri{
+text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 1px 1px 10px #141414;
+color: #b62129;
+font-size: 40px;
+font-family: 'tahoma';
+margin-top: 3%;
+text-align: center;
+}
+
+
+.h2inscri {
+font-family: 'tahoma';
+text-align: center;
+margin-top: 3%;
+}
+
+.a-inscri {
+text-decoration: none;
+color: rgb(184, 52, 52);
+}
+
+a:hover {
+text-shadow: 2px 2px 6px #00000040;
+}
+
+
+.form-inscri {
+background: rgba(0, 0, 0, 0.3);
+padding: 2rem;
+height: 350px;
+border-radius: 0px;
+text-align: center;
+border-radius: 30px;
+margin-top: 2%;
+
+
+}
+
+input {
+background: transparent;
+border: none;
+border-left: 1px solid rgba(255, 255, 255, .3);
+border-top: 1px solid rgba(255, 255, 255, .3);
+padding: 1rem;
+width: 200px;
+border-radius: 50px; 
+box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+color: rgb(255, 255, 255);
+font-weight: 500;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+margin-bottom: 2em;
+
+}
+
+input:hover,
+input[type="login"]:focus,
+input[type="password"]:focus{
+background: rgba(255,255,255,0.1);
+box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+
+}
+
+input[type="button"] {
+margin-top: 10px;
+width: 150px;
+font-size: 1rem;
+
+}
+
+::placeholder {
+color: #fff;
+}
+
+
+#buttoninscri {
+margin-left: 5%;
+margin-top: 7%;
+
+}
+
+
+.inputinscri {
+color: rgb(184, 52, 52);
+font-family: Impact;
+font-size: 20px;
+cursor: pointer;
+
+}
 
 
 
@@ -184,7 +396,8 @@ align-items: center;
 
 
 
-/************ADMIN *************/
+/************ ADMIN --> BSTRP *************/
+
 
 
 
@@ -192,7 +405,9 @@ align-items: center;
 
 
 
+
 /************* CREER-ARTICLE ************/
+
 
 
 
@@ -202,7 +417,7 @@ align-items: center;
 
 
 
-/********FOOTER******** */
+/********FOOTER*********/
 
 footer {
 height: 20vh;
