@@ -11,62 +11,58 @@ $id_droits = '';
 
 $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
 
-if (isset($_POST['save'])){
+if (isset($_POST['save'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
     $email = $_POST['email'];
     $id_droits = $_POST['id_droits'];
 
-    
 
 
-        $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')")or
+
+    $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')") or
         die($mysqli->error);
 
-        $_SESSION['message'] = "Le compte est enregistré";
-        $_SESSION['msg_type'] = "success";
-         
-        header("location: admin.php");
+    $_SESSION['message'] = "Le compte est enregistré";
+    $_SESSION['msg_type'] = "success";
+
+    header("location: admin.php");
 }
 
-if (isset($_GET['delete'])){
+if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM utilisateurs WHERE id=$id") or die($mysqli->error());
+    $mysqli->query("DELETE FROM utilisateurs WHERE id=$id") or die(mysqli_error($mysqli));
 
-        $_SESSION['message'] = "Le compte est bel et bien supprimé";
-        $_SESSION['msg_type'] = "danger";
+    $_SESSION['message'] = "Le compte est bel et bien supprimé";
+    $_SESSION['msg_type'] = "danger";
 
-        header("location: admin.php");
-
+    header("location: admin.php");
 }
 
-if (isset($_GET['edit'])){
+if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = true;
-    $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id") or die($mysqli->error());
-    
-        $row = $result->fetch_array();
-        $login = $row['login'];
-        $password = $row['password'];
-        $email = $row['email'];
-        $id_droits = $row['id_droits'];
-    }
+    $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id") or die(mysqli_error($mysqli));
+
+    $row = $result->fetch_array();
+    $login = $row['login'];
+    $password = $row['password'];
+    $email = $row['email'];
+    $id_droits = $row['id_droits'];
+}
 
 
-    if (isset($_POST['update'])){
-        $id = $_POST['id'];
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $id_droits= $_POST['id_droits'];
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $id_droits = $_POST['id_droits'];
 
-        $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id") or die
-        ($mysqli->error);
+    $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id") or die($mysqli->error);
 
-        $_SESSION['message'] = "Les infos sont belles est bien modifiées";
-        $_SESSION['msg_type'] = "warning";
+    $_SESSION['message'] = "Les infos sont belles est bien modifiées";
+    $_SESSION['msg_type'] = "warning";
 
-        header('location: admin.php');
-
-    }
-
+    header('location: admin.php');
+}
