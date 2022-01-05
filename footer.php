@@ -38,7 +38,6 @@ pages du blog -->
                 ?>
                 <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] == 1337) { ?>
 
-                    <!-- <li><a href="article.php">Article</a></li> -->
                     <li><a href="admin.php">Admin</a></li>
                     <li><a href="articles.php">Articles</a></li>
 
@@ -49,9 +48,6 @@ pages du blog -->
 
                 <?php } ?>
 
-
-                <!-- <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li> -->
             </ul>
         </div>
         <div class="bloc_footer_media">
