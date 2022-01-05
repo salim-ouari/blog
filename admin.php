@@ -29,58 +29,10 @@
     <?php endif ?>
 
     <div class="container">
-<<<<<<< HEAD
-    <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli)); 
-    $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
-    //pre_r($result);
-    ?>
-
-    <div class="row justify-content-center">
-        <table class="table">
-    <thead>
-            <tr>
-                <th>id</th>
-                <th>Login</th>
-                <th>Password</th>
-                <th>Email</th>
-                <th>id_droits</th>
-                <th colspan="2">Action</th>
-            </tr>
-    </thead>
-    
-    <?php 
-
-    while ($row = $result->fetch_assoc()):?>
-
-    <tr>
-        <td><?php echo $row['id'] ;?></td>
-        <td><?php echo $row['login'] ;?></td>
-        <td><?php echo $row['password'] ;?></td>
-        <td><?php echo $row['email'] ;?></td>
-        <td><?php echo $row['id_droits'] ;?></td>
-        <td>
-        <a href="admin.php?edit=<?php echo $row['id']; ?>"
-            class="btn btn-info">Modifier</a>
-        <a href="admin.php?delete=<?php echo $row['id']; ?>"
-            class="btn btn-danger">Supprimer</a>
-            <a href="creat.php"<?php echo $row['id']; ?>"
-            class="btn btn-success">Creer un article</a>
-        </td>
-    </tr>
-
-    <?php  endwhile; ?>
-
-    </table>
-
-    </div>
-
-    <?php
-=======
         <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
         //pre_r($result);
         ?>
->>>>>>> salim
 
         <div class="row justify-content-center">
             <table class="table">
@@ -162,9 +114,8 @@
     </div>
     </div>
 </body>
-<<<<<<< HEAD
-</html>
-=======
+<<<<<<< HEAD </html>
+    =======
 
 </html>
 >>>>>>> salim
