@@ -54,21 +54,18 @@
 
                 while ($row = $result->fetch_assoc()) : ?>
 
-<tr>
-        <td><?php echo $row['id'] ;?></td>
-        <td><?php echo $row['login'] ;?></td>
-        <td><?php echo $row['password'] ;?></td>
-        <td><?php echo $row['email'] ;?></td>
-        <td><?php echo $row['id_droits'] ;?></td>
-        <td>
-        <a href="admin.php?edit=<?php echo $row['id']; ?>"
-            class="btn btn-info">Modifier</a>
-        <a href="admin.php?delete=<?php echo $row['id']; ?>"
-            class="btn btn-danger">Supprimer</a>
-            <a href="creat.php"<?php echo $row['id']; ?>"
-            class="btn btn-success">Creer un article</a>
-        </td>
-    </tr>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['login']; ?></td>
+                        <td><?php echo $row['password']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row['id_droits']; ?></td>
+                        <td>
+                            <a href="admin.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
+                            <a href="admin.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
+                            <a href="creat.php" <?php echo $row['id']; ?>" class="btn btn-success">Creer un article</a>
+                        </td>
+                    </tr>
 
 
                 <?php endwhile; ?>
@@ -121,4 +118,5 @@
     </div>
     </div>
 </body>
+
 </html>

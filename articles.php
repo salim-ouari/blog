@@ -57,14 +57,15 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
         <section class="categorieHidden">
 
             <form action="" method="GET">
-                <select name="categorie">
-                    <?php foreach ($result_cat as $categorie) { ?>
-                        <option value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </option>
-                    <?php } ?>
-                </select>
+
+                <?php foreach ($result_cat as $categorie) { ?>
+                    <button name="categorie" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
+                <?php } ?>
+
 
                 <input type='hidden' name='page' value='1'>
-                <button type='submit' name="submit" class="formButton">Valider</button>
+                <button type='submit' name="submit" class="formButton"><a href="articles.php"></a>Tout</button>
+
             </form>
             <div class="pagination">
                 <?php
