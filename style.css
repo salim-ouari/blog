@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&family=Inter:wght@200;400&display=swap");
 * {
   margin: 0;
-  /* padding: 0; */
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
@@ -51,7 +50,7 @@ header #mobilMenu {
   display: none;
 }
 
-header #desktop {
+header #navhead {
   display: flex;
   align-items: baseline;
   justify-content: end;
@@ -61,7 +60,7 @@ header #desktop {
   font-size: 1.1em;
 }
 
-header #desktop a,
+header #navhead a,
 li {
   text-decoration: none;
   color: white;
@@ -69,18 +68,18 @@ li {
   align-items: baseline;
 }
 
-header #desktop li {
+header #navhead li {
   list-style: none;
 }
 
-header#desktop > a {
+header#navhead > a {
   padding: 20px;
   border: 1px solid transparent;
   font-size: 1.8em;
   font-weight: 900;
 }
 
-header #desktop > a i {
+header #navhead > a i {
   font-size: 1.5em;
 }
 
@@ -92,11 +91,11 @@ header i + a {
   font-family: "Inter", sans-serif;
 }
 
-header #desktop > a:hover i {
+header #navhead > a:hover i {
   color: #e50915;
 }
 
-#firstMenu {
+#menucat {
   list-style: none;
   padding-left: 0;
   padding-right: 20px;
@@ -106,19 +105,19 @@ header #desktop > a:hover i {
   font-size: 1.1em;
 }
 
-#firstMenu > li {
+#menucat > li {
   padding: 23px 0px;
   width: 80%;
   white-space: nowrap;
   text-transform: uppercase;
 }
 
-header #desktop > a:hover,
-#firstMenu:hover > li {
+header #navhead > a:hover,
+#menucat:hover > li {
   color: #e50915;
 }
 
-header #firstMenu:hover > #dropMenu {
+header #menucat:hover > #listcat {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,7 +131,7 @@ header #firstMenu:hover > #dropMenu {
   text-align: center;
 }
 
-#dropMenu {
+#listcat {
   display: none;
   padding: 0;
   list-style: none;
@@ -142,17 +141,17 @@ header #firstMenu:hover > #dropMenu {
   text-transform: capitalize;
 }
 
-#dropMenu li {
+#listcat li {
   padding: 12% 4%;
 }
 
-#dropMenu li a {
+#listcat li a {
   width: 40px;
   padding: 12% 4%;
   color: #1e1e1e;
 }
 
-#dropMenu li a:hover {
+#listcat li a:hover {
   color: #e50915;
   transition: 0.2s ease-out;
 }
@@ -162,7 +161,6 @@ header #firstMenu:hover > #dropMenu {
   align-items: center;
 }
 
-/* 
 /* ****************FOOTER************************ */
 
 footer {
