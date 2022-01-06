@@ -34,6 +34,7 @@ if (isset($_POST['connexion'])) {
                 $_SESSION['user'] = $resultat;
 
                 header('location: profil.php');
+
             } else {
 
                 $error = "Mot de passe ou Login incorrect !";
@@ -85,12 +86,12 @@ if (isset($_POST['connexion'])) {
                     <input type="text" name="login" placeholder='Login : "Johny"' required><br>
                     <input type="password" name="password" placeholder='Mot de passe : *****' required><br>
 
-                    <div class="message">
-                    <?php echo "<p class='msg'>" . $error . '</p>'; ?>
+                    <div class="error">
+                    <?php echo "<p>" . $error . '</p>'; ?>
                     </div>
 
                     <div id="buttonconni">
-                    <input class="inputconni" name="submit" type="submit" value="Se connecter">
+                    <input class="inputconni" name="connexion" type="submit" value="Se connecter">
                     </div>
 
 
