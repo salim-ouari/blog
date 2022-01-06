@@ -1,7 +1,11 @@
 
+.error{
+color: red;
+font-size: 20px;
+margin-top: -3%;
+} 
 
-
-/* ******************1er HEADER****************************** */
+/* ******************HEADER****************************** */
 
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&family=Inter:wght@200;400&display=swap");
 * {
@@ -20,7 +24,7 @@ justify-content: space-between;
 }
 
 
-/***********************2eme HEADER**********************/
+/***********************HEADER**********************/
 
 header {
 background-color:  #000000;
@@ -170,6 +174,7 @@ align-items: center;
 
 /************** INDEX ************/
 
+
 .h2index {
 margin-top: 22.5%;
 font-size: 20px;
@@ -186,18 +191,197 @@ color: red;
 
 
 .bodyinscri {
+background-color: white;
+}
+
+.boxy {
+padding: 30px;
+
+background:  #000000;
+border-radius: 20px;
+padding-top: 5px ;
+}
+
+.box-a {
+margin:auto;
+padding-left: 400px;
+padding-right: 400px;
+margin-top: 2%;
+margin-bottom: 7%;
+
+}
+
+.h1inscr{
+text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px 1px 10px #141414;
+color: #d81111;
+font-size: 40px;
+font-family: 'tahoma';
+text-align: center;
+}
+
+
+.h2inscri {
+font-family: 'tahoma';
+text-align: center;
+margin-top: 3%;
+color: rgb(255, 255, 255);
+}
+
+
+.form-inscri {
+background:#ffffff62;
+padding: 2rem;
+height: 350px;
+border-radius: 0px;
+text-align: center;
+border-radius: 30px;
+margin-top: 2%;
+}
+
+input {
+border-left: 1px solid rgba(184, 13, 13, 0.3);
+border-top: 1px solid rgba(255, 255, 255, .3);
+padding: 1rem;
+width: 200px;
+border-radius: 50px; 
+box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+color: rgb(255, 255, 255);
+font-weight: 500;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+
+}
+
+input:hover,
+input[type="login"]:focus,
+input[type="password"]:focus{
+background: rgba(255,255,255,0.1);
+box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+
+}
+
+#buttoninscri {
+margin: auto;
+margin-top: 10%;
+}
+
+
+.inputinscr {
+color: #e21313;
+font-family: Impact;
+font-size: 20px;
+cursor: pointer;
+
+}
+
+/*********** CONNEXION ***********/
+
+
+
+.bodyconni {
+background-color: white;
+
+}
+
+.conni {
+padding: 30px;
+background:  #000000;
+border-radius: 20px;
+padding-top: 5px ;
+}
+
+.box-c {
+margin:auto;
+padding-left: 400px;
+padding-right: 400px;
+margin-top: -4%;
+
+}
+
+.h1conni{
+text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px 1px 10px #141414;
+color: #d81111;
+font-size: 40px;
+font-family: 'tahoma';
+text-align: center;
+}
+
+
+.h2conni {
+font-family: 'tahoma';
+text-align: center;
+margin-top: 3%;
+color: white;
+}
+
+
+.form-conni {
+background:#ffffff62;
+padding: 2rem;
+height: 190px;
+border-radius: 0px;
+text-align: center;
+border-radius: 30px;
+margin-top: 2%;
+}
+
+input {
+background: transparent;
+border: none;
+border-left: 1px solid rgba(255, 255, 255, .3);
+border-top: 1px solid rgba(255, 255, 255, .3);
+padding: 1rem;
+width: 200px;
+border-radius: 50px; 
+box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+color: rgb(255, 255, 255);
+font-weight: 500;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+margin-bottom: 2em;
+
+}
+
+input:hover,
+input[type="login"]:focus,
+input[type="password"]:focus{
+background: rgba(255,255,255,0.1);
+box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+
+}
+
+#buttonconni {
+margin: auto;
+margin-top: 10%;
+
+}
+
+
+.inputconni {
+color: #e21313;
+font-family: Impact;
+font-size: 20px;
+cursor: pointer;
+
+}
+
+
+
+
+/**************** PROFIL **********/
+
+
+.bodyprof {
     background-color: white;
     }
     
-    .boxy {
+    .profil {
     padding: 30px;
-
+    
     background:  #000000;
     border-radius: 20px;
     padding-top: 5px ;
     }
     
-    .box-a {
+    .box-p {
     margin:auto;
     padding-left: 400px;
     padding-right: 400px;
@@ -206,7 +390,7 @@ color: red;
     
     }
     
-    .h1inscr{
+    .h1prof{
     text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px 1px 10px #141414;
     color: #d81111;
     font-size: 40px;
@@ -215,7 +399,7 @@ color: red;
     }
     
     
-    .h2inscri {
+    .h2prof {
     font-family: 'tahoma';
     text-align: center;
     margin-top: 3%;
@@ -223,7 +407,7 @@ color: red;
     }
     
     
-    .form-inscri {
+    .form-prof {
     background:#ffffff62;
     padding: 2rem;
     height: 350px;
@@ -243,7 +427,7 @@ color: red;
     color: rgb(255, 255, 255);
     font-weight: 500;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-
+    
     }
     
     input:hover,
@@ -251,120 +435,23 @@ color: red;
     input[type="password"]:focus{
     background: rgba(255,255,255,0.1);
     box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-
+    
     }
     
-    #buttoninscri {
-        margin: auto;
-        margin-top: 10%;
+    #buttonprof {
+    margin: auto;
+    margin-top: 10%;
     }
     
     
-    .inputinscr {
+    .inputprof {
     color: #e21313;
     font-family: Impact;
     font-size: 20px;
     cursor: pointer;
-
-    }
-
-/*********** CONNEXION ***********/
-
-
-
-.bodyconni {
-    background-color: white;
-
-    }
-    
-    .conni {
-    padding: 30px;
-    background:  #000000;
-    border-radius: 20px;
-    padding-top: 5px ;
-    }
-    
-    .box-c {
-    margin:auto;
-    padding-left: 400px;
-    padding-right: 400px;
-    margin-top: -4%;
     
     }
-    
-    .h1conni{
-        text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px 1px 10px #141414;
-        color: #d81111;
-    font-size: 40px;
-    font-family: 'tahoma';
-    text-align: center;
-    }
-    
-    
-    .h2conni {
-    font-family: 'tahoma';
-    text-align: center;
-    margin-top: 3%;
-    color: white;
-    }
-    
-    
-    .form-conni {
-        background:#ffffff62;
-    padding: 2rem;
-    height: 190px;
-    border-radius: 0px;
-    text-align: center;
-    border-radius: 30px;
-    margin-top: 2%;
-    }
-    
-    input {
-    background: transparent;
-    border: none;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    padding: 1rem;
-    width: 200px;
-    border-radius: 50px; 
-    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-    margin-bottom: 2em;
-
-    }
-    
-    input:hover,
-    input[type="login"]:focus,
-    input[type="password"]:focus{
-    background: rgba(255,255,255,0.1);
-    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-
-    }
-    
-    #buttonconni {
-        margin: auto;
-   margin-top: 10%;
-    
-    }
-    
-    
-    .inputconni {
-    color: #e21313;
-    font-family: Impact;
-    font-size: 20px;
-    cursor: pointer;
-
-    }
-
-
-
-
-/**************** PROFIL **********/
-
-
-
+ 
 /************ ADMIN --> BSTRP *************/
 
 
