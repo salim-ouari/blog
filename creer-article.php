@@ -25,10 +25,13 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
             // **************insére l'article dans ma base de données*************
             $requete2 = mysqli_query($bdd, "INSERT INTO articles(article,id_utilisateur,id_categorie,date) VALUES ('$article', '$id_user',
             '$cat', NOW())");
+            // *************recup du résultat et affiche dans articles.php**************
+            $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
 
-            // $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
+            header("Location: articles.php");
+
             echo $msg = 'article bien posté';
-            var_dump($requete2);
+            var_dump($resultat);
             var_dump($id_user);
         } else {
 
