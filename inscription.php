@@ -73,15 +73,15 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
 
                     <input type="text" name="login" placeholder='Login : "Johny"' required><br>
                     <input type="email" name="email" placeholder='Email : "Depp@gmail.com"' required><br>
-                    <input type="password" name="password" placeholder='Mot de passe : *****' required><br>
+                    <input type="password" name="password" placeholder='Password : *****' required><br>
                     <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
 
-                    <div class="message">
-                    <?php echo "<p class='msg'>" . $error . '</p>';?>
+                    <div class="error">
+                    <?php echo "<p>" . $error . '</p>';?>
                     </div>
 
                     <div id="buttoninscri">
-                    <input class="inputinscr" name="submit" type="submit" value="S'inscrire">
+                    <input class="inputinscr"  type="submit" value="S'inscrire">
                     </div>
 
                 </form>
