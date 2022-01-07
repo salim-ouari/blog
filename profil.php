@@ -11,7 +11,7 @@ $error = "";
 require('connect.php');
 
 //si jappuie sur le bouton modif => je rentre dans la condition
-if (isset($_POST['modif'])) {
+if (isset($_POST['profil'])) {
     // definitions des variables 
 
     $id = $_SESSION['user']['id'];
@@ -46,7 +46,7 @@ if (isset($_POST['modif'])) {
                 // je réecris les news valeurs dans session
                 $_SESSION['user'] = $resultat;
 
-                header('location: index.php');
+                header('Location: index.php');
             }
         }
     }
@@ -67,50 +67,47 @@ if (isset($_POST['modif'])) {
 
 </head>
 
-<body>
-
+<body class="bodyprof">
 
     <?php include 'header.php'; ?>
 
-    <h1 id="ac">PROFIL</h1>
-    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
-        <div id="myid">
-            <form class="form" action="profil.php" method="post">
-                <h2 class="mypro">MON PROFIL</h2>
-                <table>
-                    <tr>
+    <main>
 
-                        <td>Nouveau Login<?php $_SESSION['user']['login']; ?></td>
-                        <td><input type="text" name="login" value="<?php echo $_SESSION['user']['login']; ?>"></td>
-                    </tr>
-                    <tr>
+        <div class="box-p">
 
-                        <td>Nouveau email<?php $_SESSION['user']['email']; ?></td>
-                        <td><input type="text" name="email" value="<?php echo $_SESSION['user']['email']; ?>"></td>
-                    </tr>
+            <div class="profil">
 
+                <h1 class="h1prof">Profil</h1>
+                <h2 class="h2prof">Bienvenue sur ton profil Christopher Nolan ! </h2>
 
-                    <td>Nouveau Mot de passe</td>
-                    <td><input type="password" name="password" placeholder="Ex : *****"></td>
-                    </tr>
-                    <tr>
+                <form method="post" action="profil.php" class="form-prof" method="post">
 
-                        <td>Confirmer nouveau mot de passe</td>
-                        <td><input type="password" name="password_confirm" placeholder="Ex : *****"></td>
-                    </tr>
-                </table>
-                <div id="but">
-                    <button type="submit" name="modif">Modifier</button>
-                </div>
-            </form>
+                    <input type="text" name="login" value = "<?php echo $_SESSION['user']['login'];?>"  placeholder='New Login : "Johny"' required><br>
+                    <input type="email" name="email" value = "<?php echo $_SESSION['user']['email'];?>" placeholder='New Email : "Depp@gmail.com"' required><br>
+                    <input type="password" name="password" value = "<?php echo $_SESSION['user']['password'];?>" placeholder='New Mot de passe : *****' required><br>
+                    <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
 
-            <?php
-            echo "<br> <p class='msg'>" . $error . '</p>';
-            ?>
+                    <div class="error">
+                    <?php echo "<p>" . $error . '</p>'; ?>
+                    </div>
+
+                    <div id="buttonprof">
+                    <input class="inputprof" name=profil type="submit" value="Modifier">
+                    </div>
+
+                </form>
+
+            </div>
 
         </div>
+
     </main>
 
-    <?php include 'footer.php'; ?>
+        <div>
+        <?php include 'footer.php'; ?>
+        </div>
 
 </body>
+
+
+</html>

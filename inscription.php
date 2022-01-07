@@ -11,6 +11,8 @@ données et l’utilisateur est dirigé vers la page de connexion. -->
 require('connect.php');
 $error = '';
 
+
+
 if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
     $login = htmlspecialchars($_POST['login']);
     $email = htmlspecialchars($_POST['email']);
@@ -39,6 +41,7 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     }
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -52,54 +55,49 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+
+<body class="bodyinscri">
 
     <?php include 'header.php'; ?>
 
     <main>
-        <h1 id="ac">INSCRIPTION</h1>
-        <div id="myid">
-            <form class="form" action="inscription.php" method="post">
-                <table>
 
-                    <tr>
-                        <td>Login</td>
-                        <td><input type="text" name="login" placeholder="Ex : John" required></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="email" name="email" placeholder="Ex john@gmx.fr : "></td>
-                    </tr>
-                    <tr>
+        <div class="box-a">
 
-                        <td>Mot de passe</td>
-                        <td><input type="password" name="password" placeholder="Ex : *****" required></td>
-                    </tr>
-                    <tr>
-                        <td>Confirmer mot de passe</td>
-                        <td><input type="password" name="password_confirm" placeholder="Ex : *****"></td>
-                    </tr>
+            <div class="boxy">
 
-                </table>
-                <div id="but">
-                    <button type="submit" name="Inscription">Inscription</button>
+                <h1 class="h1inscr">Inscription</h1>
+                <h2 class="h2inscri">Je te laisse t'inscrire Al Pacino ! </h2>
 
-                    <?php
-                       echo "<br> <p class='msg'>" . $error . '</p> <br>';
-                    ?>
-                </div>
-            </form>
+                <form method="post" action="inscription.php" class="form-inscri" method="post">
+
+                    <input type="text" name="login" placeholder='Login : "Johny"' required><br>
+                    <input type="email" name="email" placeholder='Email : "Depp@gmail.com"' required><br>
+                    <input type="password" name="password" placeholder='Password : *****' required><br>
+                    <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
+
+                    <div class="error">
+                    <?php echo "<p>" . $error . '</p>';?>
+                    </div>
+
+                    <div id="buttoninscri">
+                    <input class="inputinscr"  type="submit" value="S'inscrire">
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
-        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia consectetur maxime, tempore consequatur impedit.
-            Voluptatem qui asperiores nobis quia mollitia distinctio inventore nam temporibus quis veniam ut, tenetur fugiat praesentium
-            nesciunt nihil velit incidunt dolores. Odit ad corrupti pariatur debitis fugit. Animi, voluptatum explicabo? Illum iure tempora
-            eveniet quas veritatis placeat sapiente, voluptate cumque consequuntur sed inventore, accusantium ex voluptatum. Adipisci laudantium
-            quia labore nam magnam similique dolor blanditiis natus voluptates quam doloribus nostrum dolores reprehenderit, nemo veniam provident
-            iste non libero? Vitae, quasi minus. Maxime natus laudantium, modi eum dicta pariatur recusandae porro. Exercitationem rerum corrupti harum
-            quibusdam.
-        </p>
+
     </main>
-    <?php include 'footer.php'; ?>
+
+
+                <div>
+                    <?php include 'footer.php'; ?>
+                </div>
 </body>
+
+
 
 </html>

@@ -34,13 +34,16 @@ if (isset($_POST['connexion'])) {
                 $_SESSION['user'] = $resultat;
 
                 header('location: profil.php');
+
             } else {
 
                 $error = "Mot de passe ou Login incorrect !";
             }
         }
 
-        if (isset($resultat['login']) && $resultat['login'] == 'admin') {
+
+        if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] == 1337) {
+
 
             // header('Location: admin.php');
         }
@@ -48,11 +51,7 @@ if (isset($_POST['connexion'])) {
 }
 
 
-
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -66,49 +65,46 @@ if (isset($_POST['connexion'])) {
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body class="bodycon">
 
     <?php include 'header.php'; ?>
 
-    <main style="border:2px solid pink; padding: 30px; height: 50vh; margin-bottom: 5px;">
-        <h1 id="ac">CONNEXION</h1>
+    <main>
 
-        <div id="myid">
-            <form class="form" action="connexion.php" method="post">
-                <table>
-                    <tr>
+        <div class="box-c">
 
-                        <td>Login</td>
-                        <td><input type="text" name="login" placeholder="Ex : John" required></td>
-                    </tr>
-                    <tr>
+            <div class="conni">
 
-                        <td>Mot de passe</td>
-                        <td><input type="password" name="password" placeholder="Ex : *****" required></td>
-                    </tr>
+                <h1 class="h1conni">Connexion</h1>
+                <h2 class="h2conni">Place à la connexion Dicaprio ! </h2>
 
-                </table>
-                <div id="but">
-                    <button type="submit" name="connexion">Connexion</button>
-                </div>
-            </form>
+                <form method="post" action="connexion.php" class="form-conni" method="post">
 
-            <?php
-            echo "<br> <p class='msg'>" . $error . '</p> <br>';
-            ?>
+                    <input type="text" name="login" placeholder='Login : "Johny"' required><br>
+                    <input type="password" name="password" placeholder='Mot de passe : *****' required><br>
+
+                    <div class="error">
+                    <?php echo "<p>" . $error . '</p>'; ?>
+                    </div>
+
+                    <div id="buttonconni">
+                    <input class="inputconni" name="connexion" type="submit" value="Se connecter">
+                    </div>
+
+
+                </form>
+
+            </div>
 
         </div>
-        </div>
-        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam mollitia consectetur maxime, tempore consequatur impedit.
-            Voluptatem qui asperiores nobis quia mollitia distinctio inventore nam temporibus quis veniam ut, tenetur fugiat praesentium
-            nesciunt nihil velit incidunt dolores. Odit ad corrupti pariatur debitis fugit. Animi, voluptatum explicabo? Illum iure tempora
-            eveniet quas veritatis placeat sapiente, voluptate cumque consequuntur sed inventore, accusantium ex voluptatum. Adipisci laudantium
-            quia labore nam magnam similique dolor blanditiis natus voluptates quam doloribus nostrum dolores reprehenderit, nemo veniam provident
-            iste non libero? Vitae, quasi minus. Maxime natus laudantium, modi eum dicta pariatur recusandae porro. Exercitationem rerum corrupti harum
-            quibusdam.
-        </p>
+
+
     </main>
-    <?php include 'footer.php'; ?>
+
+
+            <div>
+                <?php include 'footer.php'; ?>
+            </div>
 
 </body>
 
