@@ -38,14 +38,11 @@ if (isset($_POST['connexion'])) {
 
                 $error = "Mot de passe ou Login incorrect !";
             }
-        } else {
-
-            $error = "Mot de passe ou Login incorrect !";
         }
 
         if (isset($resultat['login']) && $resultat['login'] == 'admin') {
 
-            header('Location: admin.php');
+            // header('Location: admin.php');
         }
     }
 }

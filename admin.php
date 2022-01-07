@@ -14,6 +14,7 @@
 
     <?php include 'header.php'; ?>
 
+
     <?php require_once 'process.php'; ?>
 
     <?php
@@ -63,7 +64,7 @@
                         <td>
                             <a href="admin.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
                             <a href="admin.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
-                            <a href="creat.php" <?php echo $row['id']; ?>" class="btn btn-success">Creer un article</a>
+                            <a href="creer-article.php" <?php echo $row['id']; ?>" class="btn btn-success">Creer un article</a>
                         </td>
                     </tr>
 
