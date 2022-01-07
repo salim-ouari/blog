@@ -6,7 +6,7 @@ require('connect.php');
 $sql_count_articles = mysqli_query($bdd, 'SELECT COUNT(*) AS liste FROM articles');
 $count_articles = mysqli_fetch_all($sql_count_articles, MYSQLI_ASSOC);
 
-//pagination
+// ********************************pagination*****************************************
 $page = "";
 if (isset($_GET['page'])) {
     $page = $_GET["page"];
@@ -31,7 +31,7 @@ if (isset($_GET['categorie'])) {
     $page_categorie = $_GET['categorie'];
 }
 
-//requete pour afficher les categories dans le selecteur html
+//******************************requete pour afficher les categories**********************************
 
 $sql = mysqli_query($bdd, "SELECT categories.* FROM categories ");
 $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
@@ -69,10 +69,10 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
             </form>
             <div class="pagination">
                 <?php
-                //savoir sur qu'elle page nous sommes 
+                //****************************savoir sur qu'elle page nous sommes*************************** 
                 if (isset($_GET['categorie'])) {
 
-                    //requette pour compter les articles
+                    //*******************requette pour compter les articles*********************************
                     $sql_count_articles_cat = mysqli_query($bdd, "SELECT COUNT(articles.id_categorie) AS liste_cat FROM articles INNER JOIN
                     categories ON categories.id = articles.id_categorie WHERE categories.nom = '$page_categorie'");
                     $count_articles_cat = mysqli_fetch_all($sql_count_articles_cat, MYSQLI_ASSOC);
@@ -82,7 +82,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     $debut_cat = ($page - 1) * $nbr_article_par_page_cat;
 
 
-                    //requette pour afficher tous les articles
+                    //*******************requette pour afficher tous les articles****************************
                     $sql_articles_cat = mysqli_query($bdd, "SELECT * FROM articles INNER JOIN categories ON categories.id = articles.id_categorie
                     WHERE categories.nom = '$page_categorie' ORDER BY date DESC LIMIT $debut_cat");
 
@@ -110,7 +110,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
         <section class="conteneur_accueil containerOver">
 
             <?php
-            //tri par catégorie des articles
+            //********************************tri par catégorie des articles***************************
             if (isset($_GET['categorie'])) {
 
                 if (($_GET['categorie']) == $page_categorie) {
@@ -121,7 +121,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     $result = mysqli_fetch_all($sql_categories, MYSQLI_ASSOC);
                 }
 
-                // affichage des articls par catégorie
+                //****************************/affichage des articls par catégorie*******************
                 if (isset($_GET['page']) && $_GET['page'] == 1) {
 
                     for ($i = 0; isset($result[$i]) && $i < 5; $i++) {
@@ -144,7 +144,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     }
                 }
             } else {
-                // On boucle sur tous les articles
+                // ******************************On boucle sur tous les articles*************************
                 foreach ($articles as $article) {
                     ?>
                     <div><?= $article['article'] ?></div>
