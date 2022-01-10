@@ -31,6 +31,14 @@ if (isset($_GET['categorie'])) {
     $page_categorie = $_GET['categorie'];
 }
 
+// if (!isset($_GET['page']) && !isset($_GET['categorie'])) {
+//     $sql_article = mysqli_query($bdd, "SELECT * FROM articles ORDER BY date DESC");
+//     $result = mysqli_fetch_all($sql_article, MYSQLI_ASSOC);
+// if (count($articles) == 0) {
+//     header("location: articles.php");
+// }
+
+
 //******************************requete pour afficher les categories**********************************
 
 $sql = mysqli_query($bdd, "SELECT categories.* FROM categories ");
@@ -55,7 +63,6 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
     <main class="container">
 
         <section class="categorieHidden">
-
             <form action="" method="GET">
 
                 <?php foreach ($result_cat as $categorie) { ?>
@@ -115,30 +122,31 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
                 if (($_GET['categorie']) == $page_categorie) {
 
-                    $sql_categories = mysqli_query($bdd, "SELECT * FROM articles INNER JOIN categories ON categories.id = articles.id_categorie 
-                    WHERE categories.nom = '$page_categorie'");
+                    $sql_categories = mysqli_query($bdd, "SELECT a.id, a.article,a.date,a.id_utilisateur,a.id_categorie,c.nom FROM articles AS a INNER JOIN categories AS c ON c.id = a.id_categorie 
+                    WHERE c.nom = '$page_categorie'");
 
                     $result = mysqli_fetch_all($sql_categories, MYSQLI_ASSOC);
+                    var_dump($result);
                 }
 
-                //****************************/affichage des articls par catégorie*******************
+                //****************************affichage des articles par catégorie*******************
                 if (isset($_GET['page']) && $_GET['page'] == 1) {
 
                     for ($i = 0; isset($result[$i]) && $i < 5; $i++) {
             ?>
 
-                        <div><?= $result[$i]['article'] ?></div>
+                        <div><?= substr($result[$i]['article'], 0, 200) ?>...</div>
                         <div><?= $result[$i]['date'] ?></div>
-                        <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Détail article</a>'; ?></div>
+                        <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
 
                     <?php
                     }
                 } else {
                     for ($i = 5; isset($result[$i]) && $i < 10; $i++) {
                     ?>
-                        <div><?= $result[$i]['article'] ?></div>
+                        <div><?= substr($result[$i]['article'], 0, 200) ?></div>
                         <div><?= $result[$i]['date'] ?></div>
-                        <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Détail article</a>'; ?></div>
+                        <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
 
                     <?php
                     }
@@ -147,12 +155,14 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                 // ******************************On boucle sur tous les articles*************************
                 foreach ($articles as $article) {
                     ?>
-                    <div><?= $article['article'] ?></div>
+                    <div><?= substr($article['article'], 0, 200) ?></div>
                     <div><?= $article['date'] ?></div>
-                    <div><?php echo '<a href="article.php?id=' . $article['id'] . '">Détail article</a>'; ?></div>
+                    <div><?php echo '<a href="article.php?id=' . $article['id'] . '"">Lire article</a>'; ?></div>
+                    <input type="hidden" value=<?php $article['id'] ?>>
             <?php
                 }
             }
+
             ?>
         </section>
     </main>

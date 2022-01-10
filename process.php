@@ -8,8 +8,8 @@
     $password = '';
     $email = '';
     $id_droits = '';
-
-    $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
+    require('header.php');
+    require('connect.php');
 
     if (isset($_POST['save'])) {
         $login = $_POST['login'];
@@ -20,8 +20,7 @@
 
 
 
-        $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')") or
-            die($mysqli->error);
+        $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')");
 
         $_SESSION['message'] = "Le compte est enregistré";
         $_SESSION['msg_type'] = "success";
@@ -31,7 +30,7 @@
 
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
-        $mysqli->query("DELETE FROM utilisateurs WHERE id=$id") or die(mysqli_error($mysqli));
+        $mysqli->query("DELETE FROM utilisateurs WHERE id=$id");
 
         $_SESSION['message'] = "Le compte est bel et bien supprimé";
         $_SESSION['msg_type'] = "danger";
@@ -42,7 +41,7 @@
     if (isset($_GET['edit'])) {
         $id = $_GET['edit'];
         $update = true;
-        $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id") or die(mysqli_error($mysqli));
+        $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id");
 
         $row = $result->fetch_array();
         $login = $row['login'];
@@ -59,7 +58,7 @@
         $email = $_POST['email'];
         $id_droits = $_POST['id_droits'];
 
-        $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id") or die($mysqli->error);
+        $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id");
 
         $_SESSION['message'] = "Les infos sont belles est bien modifiées";
         $_SESSION['msg_type'] = "warning";
