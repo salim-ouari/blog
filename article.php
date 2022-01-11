@@ -11,7 +11,7 @@ require('connect.php');
 
 // ********************on récupére les infos de articles avec $get id ****************************
 $id = $_GET['id'];
-// **************************méthode affichage plus détaillé************************
+
 //requête de récupération des informations d'affichage de l'article concerné,
 $requete_art = mysqli_query($bdd, "SELECT article, DATE_FORMAT(date, '%d/%m/%Y') AS 'date', DATE_FORMAT(date, '%H:%i:%s') AS 'heure' FROM articles WHERE id = $id");
 $result_art = mysqli_fetch_array($requete_art, MYSQLI_ASSOC);
@@ -25,25 +25,19 @@ $requete_art_cat = mysqli_query($bdd, "SELECT categories.id , categories.nom FRO
 $result_art_cat = mysqli_fetch_array($requete_art_cat, MYSQLI_ASSOC);
 // var_dump($result_art_user);
 
-// ******************méthode affichage simple*************************************
-// $requete = mysqli_query($bdd, "SELECT * FROM articles WHERE id = $id ");
-// $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-// var_dump($result);
-
 // ********************requete pour récupérer les commentaires liés à l'article**********************
-$requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
-FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date' DESC");
+$requetecom = mysqli_query($bdd, "SELECT * FROM commentaires INNER JOIN utilisateurs ON id_utilisateur= commentaires.id  WHERE id_article = '$id' ORDER BY 'date' DESC");
 $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
+// var_dump($result_com);
 
 
 if (isset($_POST['submit'])) {
-    $date_heure = date('d-m-Y H:i:s', time());
+
     $user = $_SESSION['user']['id'];
     $comment = $_POST['commentaire'];
 
-    $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,date) VALUES
-    ('$comment','$id', '$user','$date_heure')");
-    var_dump($requeteinsert);
+    $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,`date`) VALUES
+    ('$comment',$id, $user,NOW())");
 
     if (isset($requeteinsert)) {
         $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
@@ -83,27 +77,30 @@ if (isset($_POST['submit'])) {
         <table id="table_art">
             <?php
             foreach ($result_com as $com) :
-                // if ($com['id_article'] == $id)
+                if ($com['id_article'] == $id) {
             ?>
 
-                <tr>
-                    <td><span> Posté par:</span>
-                        <h3><?= $com['login']; ?></h3>
-                    </td>
+                    <tr>
+                        <td><span> Posté par:</span>
+                            <h3><?= $com['login']; ?></h3>
+                        </td>
 
-                    <td><span>le</span>
-                        <em><?= $com['date']; ?></em>
-                    </td>
+                        <td><span>le</span>
+                            <em><?= $com['date']; ?></em>
+                        </td>
 
-                    <td> <?= $com['commentaire']; ?></td>
-                    <?php ?>
-                </tr>
-            <?php endforeach; ?>
+                        <td> <?= $com['commentaire']; ?></td>
+                        <?php ?>
+                    </tr>
+            <?php }
+            endforeach;
+            ?>
         </table>
         <div class="form_com">
             <form class="com_art" action="" method="post">
+                <label for="commentaire">Poster un commentaire sur l'article</label>
                 <textarea name="commentaire" id="com" cols="30" rows="10" placeholder="écrivez votre commentaire"></textarea>
-                <button type="submit" name="submit" class="button_com">Envoyer</button>
+                <button type="submit" name="submit" id="comm">Envoyer</button>
             </form>
         </div>
     </main>
