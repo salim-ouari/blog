@@ -1,62 +1,72 @@
 <?php
 
+    
 require('header.php');
-
 session_start();
 
 $id = 0;
 $update = false;
-$id = '';
-$nom = '';
-
-$mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
+$article = '';
+$id_utilisateur = '';
+$id_categorie = '';
+$date = '';
+require('connect.php');
 
 if (isset($_POST['save'])) {
-    $nom = $_POST['nom'];
     $id = $_POST['id'];
+    $article = $_POST['article'];
+    $id_utilisateur = $_POST['id_utilisateur'];
+    $id_categorie = $_POST['id_categorie'];
+    $date = $_POST['date'];
 
-
-
-
-
-    $mysqli->query("INSERT INTO categories (nom) VALUES('$nom')") or
-        die($mysqli->error);
+    $mysqli->query("INSERT INTO articles (id, article, id_utilisateur, id_categorie, date) VALUES('$id', '$article', '$id_utilisateur', '$id_categorie', '$date')") or die($mysqli->error);
+    ;
 
     $_SESSION['message'] = "Le compte est enregistré";
     $_SESSION['msg_type'] = "success";
 
-    header("location: categorie.php");
+    header("location: editarticle.php");
 }
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM categories WHERE id=$id") or die(mysqli_error($mysqli));
+    $mysqli=new mysqli("localhost", "root", "", "blog");
+    $mysqli->query("DELETE FROM articles WHERE id=$id") or die($mysqli->error);
+    
 
     $_SESSION['message'] = "Le compte est bel et bien supprimé";
     $_SESSION['msg_type'] = "danger";
 
-    header("location: categorie.php");
+    header("location: editarticle.php");
 }
 
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
+    $mysqli=new mysqli("localhost", "root", "", "blog");
     $update = true;
-    $result = $mysqli->query("SELECT * FROM categories WHERE id=$id") or die(mysqli_error($mysqli));
+    $result = $mysqli->query("SELECT * FROM articles WHERE id=$id") or die($mysqli->error);
+    
 
     $row = $result->fetch_array();
-    $nom = $row['nom'];
+    $id = $row['id'];
+    $article = $row['article'];
+    $id_utilisateur = $row['id_utilisateur'];
+    $id_categorie = $row['id_categorie'];
+    $date = $row['date'];
 }
 
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
-    $nom = $_POST['nom'];
+    $article = $_POST['article'];
 
+    $mysqli=new mysqli("localhost", "root", "", "blog");
+    $mysqli->query("UPDATE articles  SET article='$article', id='$id' WHERE id=$id") or die($mysqli->error);
 
-    $mysqli->query("UPDATE categories  SET nom='$nom', id='$id' WHERE id=$id") or die($mysqli->error);
+    
 
     $_SESSION['message'] = "Les infos sont belles est bien modifiées";
     $_SESSION['msg_type'] = "warning";
 
-    header('location: categorie.php');
+    header('location: editarticle.php');
 }

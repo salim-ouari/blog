@@ -1,7 +1,7 @@
  <?php
 
     
-
+    require('header.php');
     session_start();
 
     $id = 0;
@@ -31,6 +31,7 @@
 
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
+        $mysqli=new mysqli("localhost", "root", "", "blog");
         $mysqli->query("DELETE FROM utilisateurs WHERE id=$id");
 
         $_SESSION['message'] = "Le compte est bel et bien supprimé";
@@ -42,6 +43,7 @@
     if (isset($_GET['edit'])) {
         $id = $_GET['edit'];
         $update = true;
+        $mysqli=new mysqli("localhost", "root", "", "blog");
         $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id");
 
         $row = $result->fetch_array();
