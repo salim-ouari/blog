@@ -1,6 +1,6 @@
  <?php
 
-    require('header.php');
+    
 
     session_start();
 
@@ -10,7 +10,6 @@
     $password = '';
     $email = '';
     $id_droits = '';
-    require('header.php');
     require('connect.php');
 
     if (isset($_POST['save'])) {
