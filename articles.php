@@ -11,7 +11,6 @@ $page = "";
 if (isset($_GET['page'])) {
     $page = $_GET["page"];
 }
-
 if (empty($page)) {
     $page = 1;
 }
