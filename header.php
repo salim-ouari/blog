@@ -36,6 +36,7 @@ administrateur, il peut également accéder à la page admin. Le header doit
             Accueil
         </a>
         <?php
+
         if (empty($_SESSION)) {
         ?>
 

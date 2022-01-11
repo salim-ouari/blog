@@ -12,8 +12,6 @@
 
 <body>
 
-    
-
     <?php require_once 'process.php'; ?>
 
     <?php
