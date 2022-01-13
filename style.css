@@ -180,6 +180,91 @@ header #menucat:hover > #listcat {
   text-decoration: none;
   color: red;
 }
+/*******************Monuments*************************/
+
+#h2ny {
+  font-size: 35px;
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+}
+
+.container {
+  display: flex;
+  /* flex-flow: row wrap; */
+  justify-content: space-around;
+  position: relative;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.box img {
+  width: 100%;
+
+  cursor: pointer;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.divimg {
+  overflow: hidden;
+}
+
+.divimg img:hover {
+  transform: scale(1.2);
+  transition: 1.5s;
+  opacity: 1;
+
+  /****************** transition flash *********************/
+
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.2s;
+}
+
+.divimg img {
+  transition: 1.3s;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.h3ny {
+  text-align: center;
+  font-style: italic;
+  font-family: "Bebas Neue";
+  text-rendering: optimizeLegibility;
+  font-size: 30px;
+  margin-top: 3px;
+  color: transparent;
+}
+
+.paratitre {
+  text-transform: bold;
+  font-family: "arial", cursive;
+  color: gray;
+  width: 100%;
+  text-align: justify;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: -45px;
+}
 /************* INSCRIPTION *********/
 
 .bodyinscri {
@@ -571,11 +656,6 @@ div form {
   margin-top: 2%;
 }
 
-/* .com_art {
-  display: flex;
-  justify-content: center;
-} */
-
 div form > label {
   margin-bottom: 7px;
   font-weight: 600;
@@ -633,6 +713,47 @@ div form > textarea::placeholder {
 /************* CREER-ARTICLE ************/
 
 /************ ARTICLES ***************/
+
+.btn-1 {
+  margin: 20px;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background: #e50915;
+  background: linear-gradient(0deg, #f51420 0%, #af151d 100%);
+  border: none;
+}
+.btn-1:hover {
+  background: rgb(163, 167, 170);
+  background: linear-gradient(
+    0deg,
+    rgb(167, 167, 173) 0%,
+    rgb(213, 215, 218) 100%
+  );
+}
+
+.a-page {
+  width: 0 !important;
+}
+
+.container_articles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  position: relative;
+}
 
 /********FOOTER*********/
 
