@@ -20,7 +20,7 @@
 
 
 
-
+        $mysqli=new mysqli("localhost", "root", "", "blog");
         $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')");
 
         $_SESSION['message'] = "Le compte est enregistré";
@@ -60,7 +60,7 @@
         $password = $_POST['password'];
         $email = $_POST['email'];
         $id_droits = $_POST['id_droits'];
-
+        $mysqli=new mysqli("localhost", "root", "", "blog");
         $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id");
 
         $_SESSION['message'] = "Les infos sont belles est bien modifiées";

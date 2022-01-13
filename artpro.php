@@ -18,11 +18,11 @@ if (isset($_POST['save'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
     $id_categorie = $_POST['id_categorie'];
     $date = $_POST['date'];
-
+    $mysqli=new mysqli("localhost", "root", "", "blog");
     $mysqli->query("INSERT INTO articles (id, article, id_utilisateur, id_categorie, date) VALUES('$id', '$article', '$id_utilisateur', '$id_categorie', '$date')") or die($mysqli->error);
     ;
 
-    $_SESSION['message'] = "Le compte est enregistré";
+    $_SESSION['message'] = "L'article est enregistré";
     $_SESSION['msg_type'] = "success";
 
     header("location: editarticle.php");
@@ -45,8 +45,6 @@ if (isset($_GET['edit'])) {
     $mysqli=new mysqli("localhost", "root", "", "blog");
     $update = true;
     $result = $mysqli->query("SELECT * FROM articles WHERE id=$id") or die($mysqli->error);
-    
-
     $row = $result->fetch_array();
     $id = $row['id'];
     $article = $row['article'];
@@ -55,14 +53,14 @@ if (isset($_GET['edit'])) {
     $date = $row['date'];
 }
 
-
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $article = $_POST['article'];
-
+    $id_utilisateur = $_POST['id_utilisateur'];
+    $id_categorie = $_POST['id_categorie'];
+    $date = $_POST['date'];
     $mysqli=new mysqli("localhost", "root", "", "blog");
-    $mysqli->query("UPDATE articles  SET article='$article', id='$id' WHERE id=$id") or die($mysqli->error);
-
+    $mysqli->query("UPDATE articles SET article='$article', id_utilisateur='$id_utilisateur', id_categorie= '$id_categorie', date='$date' WHERE id='$id'")or die($mysqli->error);
     
 
     $_SESSION['message'] = "Les infos sont belles est bien modifiées";
@@ -70,3 +68,4 @@ if (isset($_POST['update'])) {
 
     header('location: editarticle.php');
 }
+

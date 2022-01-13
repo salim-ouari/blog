@@ -30,19 +30,9 @@ if (isset($_GET['categorie'])) {
     $page_categorie = $_GET['categorie'];
 }
 
-// if (!isset($_GET['page']) && !isset($_GET['categorie'])) {
-//     $sql_article = mysqli_query($bdd, "SELECT * FROM articles ORDER BY date DESC");
-//     $result = mysqli_fetch_all($sql_article, MYSQLI_ASSOC);
-// if (count($articles) == 0) {
-//     header("location: articles.php");
-// }
-
-
 //******************************requete pour afficher les categories**********************************
-
 $sql = mysqli_query($bdd, "SELECT categories.* FROM categories ");
 $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +115,6 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     WHERE c.nom = '$page_categorie'");
 
                     $result = mysqli_fetch_all($sql_categories, MYSQLI_ASSOC);
-                    var_dump($result);
                 }
 
                 //****************************affichage des articles par catégorie*******************
