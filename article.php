@@ -28,17 +28,11 @@ $result_art_cat = mysqli_fetch_array($requete_art_cat, MYSQLI_ASSOC);
 // var_dump($result_art_user);
 
 // ********************requete pour récupérer les commentaires liés à l'article**********************
-<<<<<<< HEAD
-$requetecom = mysqli_query($bdd, "SELECT * FROM commentaires INNER JOIN utilisateurs ON id_utilisateur= commentaires.id  WHERE id_article = '$id' ORDER BY 'date' DESC");
-$result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
-// var_dump($result_com);
-=======
 $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
 FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date'ASC");
 $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
 // var_dump($result_com);
 
->>>>>>> main
 
 
 if (isset($_POST['submit'])) {
@@ -48,13 +42,6 @@ if (isset($_POST['submit'])) {
 
     $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,`date`) VALUES
     ('$comment',$id, $user,NOW())");
-<<<<<<< HEAD
-    var_dump($requeteinsert);
-    var_dump("INSERT INTO commentaires(commentaire,id_article,id_utilisateur,date) VALUES
-('$comment',$id, $user,NOW()");
-=======
-
->>>>>>> main
 
     if (isset($requeteinsert)) {
         $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
@@ -91,35 +78,6 @@ if (isset($_POST['submit'])) {
                 <p class="article"><?= $result_art['article'] ?></p>
             </span>
         </div>
-<<<<<<< HEAD
-        <table id="table_art">
-            <?php
-            foreach ($result_com as $com) :
-                if ($com['id_article'] == $id) {
-            ?>
-
-                    <tr>
-                        <td><span> Posté par:</span>
-                            <h3><?= $com['login']; ?></h3>
-                        </td>
-
-                        <td><span>le</span>
-                            <em><?= $com['date']; ?></em>
-                        </td>
-
-                        <td> <?= $com['commentaire']; ?></td>
-                        <?php ?>
-                    </tr>
-            <?php }
-            endforeach;
-            ?>
-        </table>
-        <div class="form_com">
-            <form class="com_art" action="" method="post">
-                <label for="commentaire">Poster un commentaire sur l'article</label>
-                <textarea name="commentaire" id="com" cols="30" rows="10" placeholder="écrivez votre commentaire"></textarea>
-                <button type="submit" name="submit" id="comm">Envoyer</button>
-=======
         <h2 id="com-article">Commentaires liés à l'article</h2>
         <div class="cadre-table-scroll" id="style-1">
             <table id="table_art">
@@ -152,7 +110,6 @@ if (isset($_POST['submit'])) {
                 <label for="commentaire">Poster votre commentaire sur l'article ici</label>
                 <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
                 <button type="submit" name="submit" id="comm">Poster</button>
->>>>>>> main
             </form>
         </div>
     </main>
