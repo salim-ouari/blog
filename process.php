@@ -1,8 +1,8 @@
  <?php
 
     
-    require('header.php');
     session_start();
+   
 
     $id = 0;
     $update = false;
