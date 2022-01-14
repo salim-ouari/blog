@@ -51,7 +51,7 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
                 <div class="box">
 
-                    <div class="divimg"><img src="asset/movie-g881faa248_1280.jpg" alt="image clap movies"></div>
+                    <div class="divimg"><img src="asset/butt.jpg" alt="image clap movies"></div>
 
                     <h3 class="h3ny">article</h3>
                     <div class="paratitre">
