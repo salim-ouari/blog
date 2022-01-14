@@ -81,13 +81,12 @@ administrateur, il peut également accéder à la page admin. Le header doit
             <li><i class="fa fa-book" aria-hidden="true"></i>Categories</li>
 
             <ul id="listcat">
+            
                 <li><a href="articles.php">Tous</a></li>
 
-                <li><a href="articles.php?categorie=cinéma+&page=1&submit=">Cinéma</a></li>
-
-                <li><a href="articles.php?categorie=series+&page=1&submit=">Series</a></li>
-
-                <li><a href="articles.php?categorie=anim+&page=1&submit=">Anims</a></li>
+                <?php
+                
+                ?>
             </ul>
 
         </ul>

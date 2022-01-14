@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Admin Crud</title>
+    <title>Article edit</title>
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Admin</a>
+  <a class="navbar-brand" href="admin.php" target="_blank">Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +30,8 @@
 </nav>
     
     
-    <?php require_once 'process.php'; ?>
+
+    <?php require_once 'artpro.php'; ?>
 
     <?php
 
@@ -49,7 +50,7 @@
 
     <div class="container">
         <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
-        $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
+        $result = $mysqli->query("SELECT * FROM articles") or die(mysqli_error($mysqli));
         //pre_r($result);
         ?>
 
@@ -58,10 +59,10 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>Login</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>id_droits</th>
+                        <th>Article</th>
+                        <th>id_utilisateur</th>
+                        <th>id_categorie</th>
+                        <th>date</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -72,13 +73,14 @@
 
                     <tr>
                         <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['login']; ?></td>
-                        <td><?php echo $row['password']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['id_droits']; ?></td>
+                        <td><?php echo $row['article']; ?></td>
+                        <td><?php echo $row['id_utilisateur']; ?></td>
+                        <td><?php echo $row['id_categorie']; ?></td>
+                        <td><?php echo $row['date']; ?></td>
                         <td>
-                            <a href="admin.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
-                            <a href="admin.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
+                            <a href="editarticle.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
+                            <a href="editarticle.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
+                    
                         </td>
                     </tr>
 
@@ -99,23 +101,22 @@
         }
         ?>
         <div class="row justify-content-center">
-            <form action="process.php" method="POST">
+            <form action="artpro.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
-                    <label>login</label>
-                    <input type="text" name="login" class="form-control" value="<?php echo $login; ?>" placeholder="Entrez votre login">
+                    <textarea name="article"  rows="5" cols="33"><?php echo $article?></textarea> 
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="Entrez votre email">
+                    <label>ID utilisateur</label>
+                    <input type="text" name="id_utilisateur" class="form-control" value="<?php echo $id_utilisateur; ?>" placeholder="Entrez votre ID">
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value="<?php echo $password; ?>" class="form-control">
+                    <label>Categorie</label>
+                    <input type="text" name="id_categorie" value="<?php echo $id_categorie; ?>" class="form-control"placeholder="Entrez votre Catégorie">
                 </div>
                 <div class="form-group">
-                    <label>Droit</label>
-                    <input type="text" name="id_droits" value="<?php echo $id_droits; ?>" class="form-control">
+                    <label>Date</label>
+                    <input type="text" name="date" value="<?php echo $date; ?>" class="form-control"placeholder="Entrez la date">
                 </div>
                 <div class="form-group">
                     <?php
@@ -124,7 +125,7 @@
                         <button type="submit" class="btn btn-info" name="update">Update</button>
                     <?php else : ?>
 
-                        <button type="submit" class="btn btn-primary" name="save">Save</button>
+                        
 
                     <?php endif; ?>
                 </div>
