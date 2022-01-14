@@ -54,11 +54,6 @@ if (isset($requeteinsert)) {
     $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
     FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date'");
     $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
-<<<<<<< HEAD
-} else {
-    $error = 'Veuillez vous connectez pour poster un commentaire';
-=======
->>>>>>> salim
 }
 ?>
 
@@ -115,25 +110,24 @@ if (isset($requeteinsert)) {
         </div>
 
         <h2>Laisser un commentaire sur l'article</h2>
-<<<<<<< HEAD
-        <div class="error">
+        <<<<<<< HEAD <div class="error">
             <?php echo "<p>" . $error . '</p>'; ?>
-        </div>
-        <div class="form_com">
-            <form class="com_art" action="" method="post">
-                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                <textarea name="commentaire" placeholder="écrivez votre commentaire..." required></textarea>
-=======
-        <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
-        <div class="form_com">
-            <form class="com_art" action="" method="post">
-                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
->>>>>>> salim
-                <button type="submit" name="submit" id="comm">Poster</button>
-            </form>
+            </div>
+            <div class="form_com">
+                <form class="com_art" action="" method="post">
+                    <label for="commentaire">Poster votre commentaire sur l'article ici</label>
+                    <textarea name="commentaire" placeholder="écrivez votre commentaire..." required></textarea>
+                    =======
+                    <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
+                    <div class="form_com">
+                        <form class="com_art" action="" method="post">
+                            <label for="commentaire">Poster votre commentaire sur l'article ici</label>
+                            <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
+                            >>>>>>> salim
+                            <button type="submit" name="submit" id="comm">Poster</button>
+                        </form>
 
-        </div>
+                    </div>
     </main>
 
     <?php include 'footer.php'; ?>
