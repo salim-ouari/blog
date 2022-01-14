@@ -42,9 +42,6 @@ if (isset($_SESSION['user']['id'])) {
 
         $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,`date`) VALUES
     ('$comment',$id, $user,NOW())");
-    } else {
-
-        $error = 'Veuillez remplir les champs.';
     }
 } else {
     $error = 'Veuillez vous connectez pour poster un commentaire';
@@ -114,18 +111,13 @@ if (isset($requeteinsert)) {
         <div class="form_com">
             <form class="com_art" action="" method="post">
                 <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                <textarea name="commentaire" placeholder="écrivez votre commentaire..." required></textarea>
-                =======
-                <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
-                <div class="form_com">
-                    <form class="com_art" action="" method="post">
-                        <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                        <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
-                        >>>>>>> salim
-                        <button type="submit" name="submit" id="comm">Poster</button>
-                    </form>
+                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
 
-                </div>
+
+                <button type="submit" name="submit" id="comm">Poster</button>
+            </form>
+
+        </div>
     </main>
 
     <?php include 'footer.php'; ?>
