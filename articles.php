@@ -52,12 +52,17 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
     <main id="main_article">
         <h2>Tri les articles par catégories </h2>
         <section class="categorieHidden">
+
+        <!-- Button -->
+
+
             <form action="" method="GET">
+
+            <div class="wrap">
 
                 <?php foreach ($result_cat as $categorie) { ?>
                     <button class="btn-1" name="categorie" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
                 <?php } ?>
-
 
                 <input type='hidden' name='page' value='1'>
                 <button type='submit' name="submit" class="btn-1"><a href="articles.php"></a>Tout</button>
@@ -142,6 +147,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
             </section>
             <div class="pagination">
+                
                 <?php
                 //****************************savoir sur qu'elle page nous sommes*************************** 
                 if (isset($_GET['categorie'])) {

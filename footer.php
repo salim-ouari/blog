@@ -44,7 +44,7 @@ pages du blog -->
                 <?php } ?>
                 <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] != 1) { ?>
 
-                    <li><a href="creer-article.php">creer article</a></li>
+                    <li><a href="creer-article.php">Créer article</a></li>
 
                 <?php } ?>
 

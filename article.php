@@ -73,8 +73,8 @@ if (isset($requeteinsert)) {
         <div id="article">
             <img src="asset/clap.jpg" alt="clap-réalisateur">
             <span>
-                <h1 id="h1_art">Article</h1>
-                <p class="p_article">Posté par: <?= $result_art_user['login'] ?></p>
+                <h1 id="h1_art">Dicaprio</h1>
+                <p class="p_article">Article posté par : <?= $result_art_user['login'] ?></p>
                 <p class="p_article">Le: <?= $result_art['date'] ?> à <?= $result_art['heure'] ?> </p>
                 <p class="p_article">Catégorie: <?= $result_art_cat['nom'] ?> </p>
                 <p class="article"><?= $result_art['article'] ?></p>
@@ -125,3 +125,5 @@ if (isset($requeteinsert)) {
 </body>
 
 </html>
+
+

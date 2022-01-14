@@ -56,7 +56,8 @@
         ?>
 
         <div class="row justify-content-center">
-            <table class="table">
+          
+                <table class="table">
                 <thead>
                     <tr>
                         <th>id</th>
@@ -78,10 +79,12 @@
                         <td><?php echo $row['password']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['id_droits']; ?></td>
+
                         <td>
                             <a href="admin.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
                             <a href="admin.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
                         </td>
+
                     </tr>
 
 
