@@ -87,7 +87,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                                                 ?>
 
                         <div class=" box">
-                            <div class="divimg"><img src="asset/movie-g95bc91768_640.jpg" alt="image clap movies"></div>
+                            <div class="divimg"><img src="asset//butt.jpg" alt="image clap movies"></div>
                             <div class="paratitre">
                                 <h3 class="h3ny">new art</h3>
                                 <p><?= substr($result[$i]['article'], 0, 200) ?>...</p>
