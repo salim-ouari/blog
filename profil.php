@@ -1,5 +1,4 @@
 <!-- - Une page permettant de modifier son profil (profil.php) :
-
 Cette page possède un formulaire permettant à l’utilisateur de modifier
 l’ensemble de ses informations. -->
 
@@ -67,7 +66,7 @@ if (isset($_POST['profil'])) {
 
 </head>
 
-<body class="bodyprof">
+<body>
 
     <?php include 'header.php'; ?>
 

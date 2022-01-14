@@ -56,7 +56,7 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
 </head>
 
 
-<body class="bodyinscri">
+<body>
 
     <?php include 'header.php'; ?>
 

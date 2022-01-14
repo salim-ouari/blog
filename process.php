@@ -1,5 +1,6 @@
  <?php
 
+
     session_start();
 
     $id = 0;
@@ -8,8 +9,10 @@
     $password = '';
     $email = '';
     $id_droits = '';
+    
     require('header.php');
     require('connect.php');
+
 
     if (isset($_POST['save'])) {
         $login = $_POST['login'];

@@ -2,7 +2,7 @@
 Cette page possède un formulaire permettant "AUX MODERATEURS" et aux
 "ADMINISTRATEURS" de "CREER DE NOUVEAUX ARTICLES". 
 Le formulaire contient donc le texte de l’article, une liste déroulante contenant les catégories existantes
-<!-- en base de données et un bouton submit.  -->
+ en base de données et un bouton submit.  -->
 
 <?php
 require('connect.php');
@@ -30,12 +30,10 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
 
             header("Location: articles.php");
 
-            echo $msg = 'article bien posté';
-            var_dump($resultat);
-            var_dump($id_user);
+            echo $msg = 'Article bien posté';
         } else {
 
-            echo $msg = 'veuillez remplir tout les champs';
+            echo $msg = 'Veuillez remplir tout les champs';
         }
     }
 }
@@ -50,27 +48,48 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <title>créer article</title>
+    <title>Créer article</title>
 </head>
 
 <body>
 
     <?php include 'header.php'; ?>
+
     <main>
-        <form action="creer-article.php" method="post">
-            <select name="categorie">
-                <option value="">Choisir une catégorie</option>
-                <option value="1">Cinéma</option>
-                <option value="2">Séries</option>
-                <option value="3">Anim</option>
-            </select>
-            <!-- <input type="text" name="titre" placeholder="titre article">
-                <input type="text" name="description" placeholder="introduction article"> -->
-            <textarea name="article" cols="30" rows="10"></textarea>
-            <input type="submit" name="submit">
-            <?php ?>
+
+        <select class="selectcreer" name="categorie">
+            <option value="">Choisir une catégorie</option>
+            <option value="1">Cinéma</option>
+            <option value="2">Séries</option>
+            <option value="3">Anim</option>
+        </select>
+
+        <form action="creer-article.php" method="post" class="form-art">
+
+
+            <div class="box-art">
+
+                <h1 class="h1art"> Publication de l'article </h1>
+
+                <textarea class="area-art" name="comment" placeholder="Publie ton article  ..." required></textarea>
+
+                <div class="buttonart">
+                    <input class="inputart" type="submit" value="Publier" name="submit" action="post" required />
+                </div>
+
+                <div class="message">
+                    <?php
+                    echo "<p class='msg'>" . $msg . '</p>';
+                    ?>
+                </div>
+
         </form>
+
     </main>
+
+
+
+
     <?php include 'footer.php'; ?>
 </body>
 

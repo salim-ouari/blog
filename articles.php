@@ -39,6 +39,7 @@ if (isset($_GET['categorie'])) {
 // }
 
 
+
 //******************************requete pour afficher les categories**********************************
 
 $sql = mysqli_query($bdd, "SELECT categories.* FROM categories ");
@@ -62,19 +63,30 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
     <?php require('header.php') ?>
     <main class="container">
 
+
         <section class="categorieHidden">
+
+        <!-- Button -->
+
+
             <form action="" method="GET">
 
+            <div class="wrap">
+
                 <?php foreach ($result_cat as $categorie) { ?>
-                    <button name="categorie" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
+                    <button name="categorie" class="btn" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
                 <?php } ?>
 
-
                 <input type='hidden' name='page' value='1'>
-                <button type='submit' name="submit" class="formButton"><a href="articles.php"></a>Tout</button>
+                <button type='submit' name="submit" class="btn"><a href="articles.php"></a>Tout</button>
+
+            </div>
 
             </form>
+
+
             <div class="pagination">
+                
                 <?php
                 //****************************savoir sur qu'elle page nous sommes*************************** 
                 if (isset($_GET['categorie'])) {
@@ -126,7 +138,6 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     WHERE c.nom = '$page_categorie'");
 
                     $result = mysqli_fetch_all($sql_categories, MYSQLI_ASSOC);
-                    var_dump($result);
                 }
 
                 //****************************affichage des articles par catégorie*******************
@@ -152,6 +163,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     }
                 }
             } else {
+
                 // ******************************On boucle sur tous les articles*************************
                 foreach ($articles as $article) {
                     ?>

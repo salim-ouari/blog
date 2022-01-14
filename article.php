@@ -36,6 +36,7 @@ FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.i
 $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
 
 
+
 if (isset($_POST['submit'])) {
     $date_heure = date('d-m-Y H:i:s', time());
     $user = $_SESSION['user']['id'];
@@ -43,7 +44,7 @@ if (isset($_POST['submit'])) {
 
     $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,date) VALUES
     ('$comment','$id', '$user','$date_heure')");
-    var_dump($requeteinsert);
+   
 
     if (isset($requeteinsert)) {
         $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
@@ -73,8 +74,8 @@ if (isset($_POST['submit'])) {
         <div id="article">
             <img src="asset/clap.jpg" alt="clap-réalisateur">
             <span>
-                <h1 id="h1_art">Article</h1>
-                <p class="p_article">Posté par: <?= $result_art_user['login'] ?></p>
+                <h1 id="h1_art">Dicaprio</h1>
+                <p class="p_article">Article posté par : <?= $result_art_user['login'] ?></p>
                 <p class="p_article">Le: <?= $result_art['date'] ?> à <?= $result_art['heure'] ?> </p>
                 <p class="p_article">Catégorie: <?= $result_art_cat['nom'] ?> </p>
                 <p class="article"><?= $result_art['article'] ?></p>
@@ -100,12 +101,21 @@ if (isset($_POST['submit'])) {
                 </tr>
             <?php endforeach; ?>
         </table>
-        <div class="form_com">
-            <form class="com_art" action="" method="post">
-                <textarea name="commentaire" id="com" cols="30" rows="10" placeholder="écrivez votre commentaire"></textarea>
-                <button type="submit" name="submit" class="button_com">Envoyer</button>
-            </form>
-        </div>
+
+
+        < <form action="article.php" method="post" class="form-art">
+
+            <div class="box-comm">
+
+                <h1 class="h1comm"> Poste ton commentaire !</h1>
+
+                <textarea class="area-comm" name="comment" placeholder="Fais nous part de ta belle plume  ..." required></textarea>
+
+                <div class="buttoncomm">
+                    <input class="inputcomm" type="submit" value="Commenter" name="submit" action="post" required />
+                </div>
+
+        </form>
     </main>
 
     <?php include 'footer.php'; ?>
@@ -113,3 +123,5 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+
+
