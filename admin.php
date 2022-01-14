@@ -10,7 +10,9 @@
     <title>Admin Crud</title>
 </head>
 
-<body>
+<body> 
+
+<?php require('header.php') ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Admin</a>
@@ -132,6 +134,7 @@
         </form>
     </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

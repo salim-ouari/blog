@@ -1,7 +1,5 @@
 <?php
 
-require('header.php');
-
 session_start();
 
 $id = 0;
