@@ -25,32 +25,40 @@ $result_art_user = mysqli_fetch_array($requete_art_user, MYSQLI_ASSOC);
 //*****************requête de récupération des informations de la catégorie de l'article*****************************
 $requete_art_cat = mysqli_query($bdd, "SELECT categories.id , categories.nom FROM categories INNER JOIN articles ON categories.id = articles.id_categorie WHERE articles.id = $id");
 $result_art_cat = mysqli_fetch_array($requete_art_cat, MYSQLI_ASSOC);
-// var_dump($result_art_user);
+
 
 // ********************requete pour récupérer les commentaires liés à l'article**********************
 $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
 FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date'ASC");
 $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
-// var_dump($result_com);
+
 
 $error = "";
 
+if (isset($_SESSION['user']['id'])) {
+    if (isset($_POST['submit']) && (!empty($_POST['commentaire']))) {
+        $user = $_SESSION['user']['id'];
+        $comment = $_POST['commentaire'];
 
-if (isset($_POST['submit'])) {
-
-    $user = $_SESSION['user']['id'];
-    $comment = $_POST['commentaire'];
-
-    $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,`date`) VALUES
+        $requeteinsert = mysqli_query($bdd, "INSERT INTO commentaires(commentaire,id_article,id_utilisateur,`date`) VALUES
     ('$comment',$id, $user,NOW())");
+    } else {
+
+        $error = 'Veuillez remplir les champs.';
+    }
+} else {
+    $error = 'Veuillez vous connectez pour poster un commentaire';
 }
 
 if (isset($requeteinsert)) {
     $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
     FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date'");
     $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
+<<<<<<< HEAD
 } else {
     $error = 'Veuillez vous connectez pour poster un commentaire';
+=======
+>>>>>>> salim
 }
 ?>
 
@@ -107,6 +115,7 @@ if (isset($requeteinsert)) {
         </div>
 
         <h2>Laisser un commentaire sur l'article</h2>
+<<<<<<< HEAD
         <div class="error">
             <?php echo "<p>" . $error . '</p>'; ?>
         </div>
@@ -114,6 +123,13 @@ if (isset($requeteinsert)) {
             <form class="com_art" action="" method="post">
                 <label for="commentaire">Poster votre commentaire sur l'article ici</label>
                 <textarea name="commentaire" placeholder="écrivez votre commentaire..." required></textarea>
+=======
+        <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
+        <div class="form_com">
+            <form class="com_art" action="" method="post">
+                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
+                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
+>>>>>>> salim
                 <button type="submit" name="submit" id="comm">Poster</button>
             </form>
 

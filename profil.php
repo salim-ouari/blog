@@ -78,21 +78,21 @@ if (isset($_POST['profil'])) {
             <div class="profil">
 
                 <h1 class="h1prof">Profil</h1>
-                <h2 class="h2prof">Bienvenue sur ton profil Christopher Nolan ! </h2>
+                <h2 class="h2prof">Bienvenue sur ton profil <?php echo $_SESSION['user']['login']; ?> ! </h2>
 
                 <form method="post" action="profil.php" class="form-prof" method="post">
 
-                    <input type="text" name="login" value = "<?php echo $_SESSION['user']['login'];?>"  placeholder='New Login : "Johny"' required><br>
-                    <input type="email" name="email" value = "<?php echo $_SESSION['user']['email'];?>" placeholder='New Email : "Depp@gmail.com"' required><br>
-                    <input type="password" name="password" value = "<?php echo $_SESSION['user']['password'];?>" placeholder='New Mot de passe : *****' required><br>
+                    <input type="text" name="login" value="<?php echo $_SESSION['user']['login']; ?>" placeholder='New Login : "Johny"' required><br>
+                    <input type="email" name="email" value="<?php echo $_SESSION['user']['email']; ?>" placeholder='New Email : "Depp@gmail.com"' required><br>
+                    <input type="password" name="password" value="<?php echo $_SESSION['user']['password']; ?>" placeholder='New Mot de passe : *****' required><br>
                     <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
 
                     <div class="error">
-                    <?php echo "<p>" . $error . '</p>'; ?>
+                        <?php echo "<p>" . $error . '</p>'; ?>
                     </div>
 
                     <div id="buttonprof">
-                    <input class="inputprof" name=profil type="submit" value="Modifier">
+                        <input class="inputprof" name=profil type="submit" value="Modifier">
                     </div>
 
                 </form>
@@ -103,9 +103,9 @@ if (isset($_POST['profil'])) {
 
     </main>
 
-        <div>
+    <div>
         <?php include 'footer.php'; ?>
-        </div>
+    </div>
 
 </body>
 
