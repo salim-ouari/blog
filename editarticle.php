@@ -12,26 +12,28 @@
 
 <body>
 
-<?php require('header.php') ?>
+    <?php
+    session_start();
+    require('header.php') ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="admin.php" target="_blank">Admin</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="editarticle.php" target="_blank">Article <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="categorie.php" target="_blank">Categorie</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-    
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="admin.php" target="_blank">Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="editarticle.php" target="_blank">Article <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="categorie.php" target="_blank">Categorie</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
 
     <?php require_once 'artpro.php'; ?>
 
@@ -82,7 +84,7 @@
                         <td>
                             <a href="editarticle.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
                             <a href="editarticle.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
-                    
+
                         </td>
                     </tr>
 
@@ -106,7 +108,7 @@
             <form action="artpro.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
-                    <textarea name="article"  rows="5" cols="33"><?php echo $article?></textarea> 
+                    <textarea name="article" rows="5" cols="33"><?php echo $article ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>ID utilisateur</label>
@@ -114,11 +116,11 @@
                 </div>
                 <div class="form-group">
                     <label>Categorie</label>
-                    <input type="text" name="id_categorie" value="<?php echo $id_categorie; ?>" class="form-control"placeholder="Entrez votre Catégorie">
+                    <input type="text" name="id_categorie" value="<?php echo $id_categorie; ?>" class="form-control" placeholder="Entrez votre Catégorie">
                 </div>
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" name="date" value="<?php echo $date; ?>" class="form-control"placeholder="Entrez la date">
+                    <input type="text" name="date" value="<?php echo $date; ?>" class="form-control" placeholder="Entrez la date">
                 </div>
                 <div class="form-group">
                     <?php
@@ -127,7 +129,7 @@
                         <button type="submit" class="btn btn-info" name="update">Update</button>
                     <?php else : ?>
 
-                        
+
 
                     <?php endif; ?>
                 </div>

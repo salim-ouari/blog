@@ -77,11 +77,11 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
                     <input type="password" name="password_confirm" placeholder='Confirmation : *****' required><br>
 
                     <div class="error">
-                    <?php echo "<p>" . $error . '</p>';?>
+                        <?php echo "<p>" . $error . '</p>'; ?>
                     </div>
 
                     <div id="buttoninscri">
-                    <input class="inputinscr"  type="submit" value="S'inscrire">
+                        <input class="inputinscr" type="submit" value="S'inscrire">
                     </div>
 
                 </form>
@@ -93,9 +93,9 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     </main>
 
 
-                <div>
-                    <?php include 'footer.php'; ?>
-                </div>
+    <div>
+        <?php include 'footer.php'; ?>
+    </div>
 </body>
 
 

@@ -536,9 +536,7 @@ to{transform:rotatey(0.5turn)}}
 
 }
 
-
 /************* INSCRIPTION *********/
-
 
 .boxy {
 padding: 30px;
@@ -580,6 +578,8 @@ border-radius: 0px;
 text-align: center;
 border-radius: 30px;
 margin-top: 2%;
+width: 80%;
+margin: auto;
 
 }
 
@@ -603,7 +603,7 @@ box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
 }
 
 #buttoninscri {
-margin-top: 10%;
+margin-top: 15%;
 }
 
 .inputinscr {
@@ -616,9 +616,8 @@ cursor: pointer;
 /*********** CONNEXION ***********/
 
 
-
 .conni {
-  padding: 30px;
+  padding: 20px;
   background:  #000000;
   border-radius: 20px;
   padding-top: 5px ;
@@ -656,13 +655,12 @@ cursor: pointer;
   text-align: center;
   border-radius: 30px;
   margin-top: 2%;
- 
-
+  width:50%;
+  margin: auto;
   }
   
   input {
   background: transparent;
-  border: none;
   border-left: 1px solid rgba(255, 255, 255, .3);
   border-top: 1px solid rgba(255, 255, 255, .3);
   padding: 1rem;
@@ -672,7 +670,7 @@ cursor: pointer;
   color: rgb(255, 255, 255);
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-  margin-bottom: 2em;
+
   
   }
   
@@ -685,7 +683,7 @@ cursor: pointer;
   }
   
   #buttonconni {
-  margin-top: 10%;
+  margin-top: 15%;
   
   }
   
@@ -700,9 +698,6 @@ cursor: pointer;
   }
 
 /**************** PROFIL **********/
-
-
-
 
 .profil {
 padding: 30px;
@@ -950,34 +945,47 @@ margin-left: 2%;
   background-color: #a11818;
 }
 
-
-
-
-
 /* *******************post article********************* */
 
+h2 {
+  color: white;
+  margin-top: 10%;
+}
 
 #com-article {
   color: white;
-  margin-top: 7%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
 }
 
+.form_com {
+  /* margin-right: 30%; */
+  /* display: block; */
+  align-items: center;
+  width: 50%;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 8px;
+  /* margin-left: 25%;
+  margin: right 25%; */
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+}
 
 .comh1 {
   text-align: center;
 }
 
 div form {
- 
+  width: 80%;
   display: flex;
   text-align: center;
   flex-direction: column;
   min-height: 83px;
   align-items: center;
   margin-top: 2%;
-  
 }
+
 
 div form > label {
   margin-bottom: 7px;
@@ -1003,8 +1011,7 @@ div form > textarea {
 }
 
 div form > textarea::placeholder {
-  color: #f3f3f379;
-  font-size: 110%;
+  color: #e50915;
 }
 
 .poster {
@@ -1015,14 +1022,15 @@ div form > textarea::placeholder {
 
 }
 
-#buttoncomm {
-margin-bottom: 10%;
+#comm {
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   width: 150px;
   max-width: 500px;
   height: 40px;
   font-size: 20px;
-  background: #e50914b6;
+  background: #e50915;
   border: rgba(48, 48, 48, 0.5) solid 1px;
   border-radius: 5px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -1102,14 +1110,6 @@ font-size: 20px;
   
   }
 
-
-
-
-
-
-
-
-
 /************ ARTICLES ***************/
 
 .h2tri{
@@ -1179,7 +1179,6 @@ text-align: center;
   margin-bottom: 5%;
 }
 
-
 /********FOOTER*********/
 
 footer {
@@ -1187,7 +1186,7 @@ footer {
 background: #000000;
 background: -webkit-linear-gradient(to right, #1a1b1b, #232526);
 bottom: 0;
-display: flex;
+display: flex !important;
 justify-content: space-between;
 box-shadow: 1px 1px 10px;
 width: 100%;
@@ -1195,8 +1194,6 @@ width: 100%;
 align-items: center;
 padding: 3vh;
 }
-
-
 
 ul {
 display: flex;

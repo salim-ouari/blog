@@ -107,14 +107,13 @@ if (isset($requeteinsert)) {
         </div>
 
 
-        <div class="error"><?php echo "<p>" . $error . '</p>'; ?></div>
+        <h2>Laisser un commentaire sur l'article</h2>
+        <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
         <div class="form_com">
             <form class="com_art" action="" method="post">
-                <label for="commentaire" class="labeltitre">Fais nous part de ta belle plume !</label>
-                <textarea name="commentaire" class="area-comm"  placeholder="Laisse nous ton commentaire..." required></textarea>
-
-
-                <button type="submit" name="submit" id="buttoncomm">Poster</button>
+                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
+                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
+                <button type="submit" name="submit" id="comm">Poster</button>
             </form>
 
         </div>
@@ -125,5 +124,3 @@ if (isset($requeteinsert)) {
 </body>
 
 </html>
-
-
