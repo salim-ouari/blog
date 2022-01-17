@@ -51,7 +51,7 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
         //pre_r($result);
         ?>
@@ -108,7 +108,7 @@
             <form action="process.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
-                    <label>login</label>
+                    <label>Login</label>
                     <input type="text" name="login" class="form-control" value="<?php echo $login; ?>" placeholder="Entrez votre login">
                 </div>
                 <div class="form-group">

@@ -5,7 +5,7 @@ $update = false;
 $id = '';
 $nom = '';
 
-$mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
 
 if (isset($_POST['save'])) {
     $nom = $_POST['nom'];

@@ -50,7 +50,7 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM articles") or die(mysqli_error($mysqli));
         //pre_r($result);
         ?>

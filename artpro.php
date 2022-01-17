@@ -14,7 +14,7 @@ if (isset($_POST['save'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
     $id_categorie = $_POST['id_categorie'];
     $date = $_POST['date'];
-    $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+    $mysqli = new mysqli('localhost', 'root', '', 'blog');
     $mysqli->query("INSERT INTO articles (id, article, id_utilisateur, id_categorie, date) VALUES('$id', '$article', '$id_utilisateur', '$id_categorie', '$date')") or die($mysqli->error);;
 
     $_SESSION['message'] = "L'article est enregistré";
@@ -25,7 +25,7 @@ if (isset($_POST['save'])) {
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+    $mysqli = new mysqli('localhost', 'root', '', 'blog');
     $mysqli->query("DELETE FROM articles WHERE id=$id") or die($mysqli->error);
 
 
@@ -37,7 +37,7 @@ if (isset($_GET['delete'])) {
 
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
-    $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+    $mysqli = new mysqli('localhost', 'root', '', 'blog');
     $update = true;
     $result = $mysqli->query("SELECT * FROM articles WHERE id=$id") or die($mysqli->error);
     $row = $result->fetch_array();
@@ -54,7 +54,7 @@ if (isset($_POST['update'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
     $id_categorie = $_POST['id_categorie'];
     $date = $_POST['date'];
-    $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+    $mysqli = new mysqli('localhost', 'root', '', 'blog');
     $mysqli->query("UPDATE articles SET article='$article', id_utilisateur='$id_utilisateur', id_categorie= '$id_categorie', date='$date' WHERE id='$id'") or die($mysqli->error);
 
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Categorie</title>
+    <title>Catégorie</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="editarticle.php" target="_blank">Article <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categorie.php" target="_blank">Categorie</a>
+                    <a class="nav-link" href="categorie.php" target="_blank">Catégorie</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM categories") or die(mysqli_error($mysqli));
 
         ?>
@@ -60,7 +60,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <th>Id</th>
                         <th>Nom</th>
                         <th colspan="2">Action</th>
                     </tr>

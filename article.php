@@ -102,12 +102,13 @@ if (isset($requeteinsert)) {
             </table>
         </div>
 
-        <h2>Laisser un commentaire sur l'article</h2>
+        <h2 class="h2comm">Laisse ton commentaire sur l'article !</h2>
+
         <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>
         <div class="form_com">
             <form class="com_art" action="" method="post">
-                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
+            
+                <textarea class="areacom" name="commentaire" placeholder="Fais nous part de ta belle plume ..."></textarea>
                 <button type="submit" name="submit" id="comm">Poster</button>
             </form>
 
