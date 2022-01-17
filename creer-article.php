@@ -4,7 +4,7 @@ Cette page possède un formulaire permettant "AUX MODERATEURS" et aux
 Le formulaire contient donc le texte de l’article, une liste déroulante contenant les catégories existantes
  en base de données et un bouton submit.  -->
 
- <?php
+<?php
 require('connect.php');
 session_start();
 
@@ -28,10 +28,9 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
             // *************recup du résultat et affiche dans articles.php**************
             $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
 
-            header("Location: articles.php");
+            // header("Location: articles.php");
 
             echo $msg = 'Article bien posté';
-
         } else {
 
             echo $msg = 'Veuillez remplir tout les champs';
@@ -58,40 +57,31 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
 
     <main>
 
-    <form action="creer-article.php" method="post" class="form-art">
+        <form action="creer-article.php" method="post" class="form-art">
 
-        <select name="categorie" class="selectcreer" >
-            <option value="">Choisir une catégorie</option>
-            <option value="1">Cinéma</option>
-            <option value="2">Séries</option>
-            <option value="3">Animation</option>
-        </select>
+            <select name="categorie" class="selectcreer">
+                <option value="">Choisir une catégorie</option>
+                <option value="1">Cinéma</option>
+                <option value="2">Séries</option>
+                <option value="3">Animation</option>
+            </select>
 
 
             <div class="box-art">
 
                 <h1 class="h1art"> Publication de l'article </h1>
 
-                <textarea name="article"   class="area-art"  placeholder="Publie ton article  ..." required></textarea>
+                <textarea name="article" class="area-art" placeholder="Publie ton article  ..." required></textarea>
 
                 <div class="buttonart">
                     <input class="inputart" type="submit" value="Publier" name="submit" action="post" required />
                 </div>
                 <?php ?>
 
-    </form>
+        </form>
 
     </main>
-
-
-
-
     <?php include 'footer.php'; ?>
 </body>
 
 </html>
-
-<?php
-
-
-?>

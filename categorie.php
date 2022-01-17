@@ -33,8 +33,6 @@
         </div>
     </nav>
 
-
-
     <?php require_once 'procate.php'; ?>
 
     <?php
@@ -53,9 +51,9 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM categories") or die(mysqli_error($mysqli));
-        //pre_r($result);
+
         ?>
 
         <div class="row justify-content-center">

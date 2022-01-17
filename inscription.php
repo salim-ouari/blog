@@ -5,13 +5,10 @@ Le formulaire doit contenir l’ensemble des champs présents dans la table
 utilisateur remplit ce formulaire, les données sont insérées dans la base de
 données et l’utilisateur est dirigé vers la page de connexion. -->
 
-
 <?php
-
 require('connect.php');
+
 $error = '';
-
-
 
 if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
     $login = htmlspecialchars($_POST['login']);
@@ -41,7 +38,6 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +50,6 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
     <title>Inscription</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
@@ -92,12 +87,8 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
 
     </main>
 
+    <?php include 'footer.php'; ?>
 
-    <div>
-        <?php include 'footer.php'; ?>
-    </div>
 </body>
-
-
 
 </html>

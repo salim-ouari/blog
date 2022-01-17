@@ -16,8 +16,6 @@ $id = $_GET['id'];
 $requete_art = mysqli_query($bdd, "SELECT article, DATE_FORMAT(date, '%d/%m/%Y') AS 'date', DATE_FORMAT(date, '%H:%i:%s') AS 'heure' FROM articles WHERE id = $id");
 $result_art = mysqli_fetch_array($requete_art, MYSQLI_ASSOC);
 
-
-
 //*****************requête de récupération des informations de l'user ayant posté cet article*********************
 $requete_art_user = mysqli_query($bdd, "SELECT utilisateurs.id, utilisateurs.login FROM articles INNER JOIN utilisateurs ON utilisateurs.id = id_utilisateur WHERE articles.id = $id");
 $result_art_user = mysqli_fetch_array($requete_art_user, MYSQLI_ASSOC);
@@ -26,12 +24,10 @@ $result_art_user = mysqli_fetch_array($requete_art_user, MYSQLI_ASSOC);
 $requete_art_cat = mysqli_query($bdd, "SELECT categories.id , categories.nom FROM categories INNER JOIN articles ON categories.id = articles.id_categorie WHERE articles.id = $id");
 $result_art_cat = mysqli_fetch_array($requete_art_cat, MYSQLI_ASSOC);
 
-
 // ********************requete pour récupérer les commentaires liés à l'article**********************
 $requetecom = mysqli_query($bdd, "SELECT utilisateurs.login, commentaires.commentaire, commentaires.date, commentaires.id_article
 FROM utilisateurs INNER JOIN commentaires WHERE utilisateurs.id = commentaires.id_utilisateur ORDER BY 'date'ASC");
 $result_com = mysqli_fetch_all($requetecom, MYSQLI_ASSOC);
-
 
 $error = "";
 
@@ -105,7 +101,6 @@ if (isset($requeteinsert)) {
                 ?>
             </table>
         </div>
-
 
         <h2>Laisser un commentaire sur l'article</h2>
         <div class="error"> <?= "<p>" . $error . '</p>'; ?></div>

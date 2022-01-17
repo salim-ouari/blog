@@ -8,19 +8,6 @@ session_start();
 
 include('connect.php');
 
-// //requête de récupération des informations d'affichage de l'article concerné,
-// $requete_art = mysqli_query($bdd, "SELECT article, DATE_FORMAT(date, '%d/%m/%Y') AS 'date', DATE_FORMAT(date, '%H:%i:%s') AS 'heure' FROM articles ORDER BY 'date' DESC LIMIT 3");
-// $result_art = mysqli_fetch_array($requete_art, MYSQLI_ASSOC);
-
-// //*****************requête de récupération des informations de l'user ayant posté cet article*********************
-// $requete_art_user = mysqli_query($bdd, "SELECT utilisateurs.id, utilisateurs.login FROM articles INNER JOIN utilisateurs ON utilisateurs.id = id_utilisateur ORDER BY 'date' DESC LIMIT 3 ");
-// $result_art_user = mysqli_fetch_array($requete_art_user, MYSQLI_ASSOC);
-
-// //*****************requête de récupération des informations de la catégorie de l'article*****************************
-// $requete_art_cat = mysqli_query($bdd, "SELECT categories.id , categories.nom FROM categories INNER JOIN articles ON categories.id = articles.id_categorie ORDER BY 'date' DESC LIMIT 3");
-// $result_art_cat = mysqli_fetch_array($requete_art_cat, MYSQLI_ASSOC);
-// var_dump($result_art_user);
-
 $requete = mysqli_query($bdd, "SELECT * FROM articles ORDER BY 'date' ASC LIMIT 3 ");
 $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
@@ -37,24 +24,24 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body class= "bodyindex">
+<body class="bodyindex">
 
     <?php include 'header.php'; ?>
 
     <main>
 
-    <div class="logo">
+        <div class="logo">
 
             <div class="Netflix">
-                <span id ="span-net"></span>
-                <span id ="span-net"></span>
-                <span id ="span-net"></span>
+                <span id="span-net"></span>
+                <span id="span-net"></span>
+                <span id="span-net"></span>
             </div>
 
-            </div>
+        </div>
 
-            <h3 class="h3index">Our Blog</h3>
-    </div>
+        <h3 class="h3index">Our Blog</h3>
+        </div>
 
 
         <div class="contenu_carou_auto">
@@ -65,10 +52,10 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
                 <img src="https://cdn.wallpapersafari.com/47/86/JAZBzK.jpg" alt="BREAKING BAD">
                 <img src="https://steamuserimages-a.akamaihd.net/ugc/950711732305490191/4E8BF6A5DA6EAB40E5E1A6AC0B7B86C51937F3CC/?imw=1024&imh=576&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="DEATHNOTE">
                 <img src="https://c4.wallpaperflare.com/wallpaper/305/115/735/harry-potter-movies-daniel-radcliffe-emma-watson-wallpaper-preview.jpg" alt="HARRY POTTER">
-                <img src="https://cdn.radiofrance.fr/s3/cruiser-production/2020/09/a7bd10b3-3d73-4788-a142-7d42e5c55d02/838_matthew-mcconaughey-in-interstellar-wide.jpg" alt="INTERSTELLAR"> 
-                <img src="https://entournantlespages.files.wordpress.com/2020/09/strangerthings2.jpg" alt="STRANGER THINGS"> 
+                <img src="https://cdn.radiofrance.fr/s3/cruiser-production/2020/09/a7bd10b3-3d73-4788-a142-7d42e5c55d02/838_matthew-mcconaughey-in-interstellar-wide.jpg" alt="INTERSTELLAR">
+                <img src="https://entournantlespages.files.wordpress.com/2020/09/strangerthings2.jpg" alt="STRANGER THINGS">
                 <img src="https://static.lpnt.fr/images/2020/04/18/20259720lpw-20259783-article-jpg_7055451_1250x625.jpg" alt="VIKINGS">
-                
+
             </div>
         </div>
         <h2 class="h2index">Découvrez vite <a class="a-index" href="articles.php"> les articles</a> de notre blog ! </h2>
@@ -93,10 +80,8 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
             <?php    } ?>
         </section>
-    <?php include 'footer.php'; ?>
- </main>
+        <?php include 'footer.php'; ?>
+    </main>
 </body>
 
 </html>
-
-

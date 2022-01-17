@@ -3,12 +3,10 @@ Le formulaire doit avoir deux inputs : “login” et “password”. Lorsque le
 formulaire est validé, s’il existe un utilisateur en bdd correspondant à ces
 informations, alors l’utilisateur devient connecté et une (ou plusieurs)
 variables de session sont créées. -->
-
 <?php
 
 session_start();
 $error = '';
-
 
 if (isset($_POST['connexion'])) {
 
@@ -51,9 +49,7 @@ if (isset($_POST['connexion'])) {
     }
 }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

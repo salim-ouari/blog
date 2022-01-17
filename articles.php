@@ -53,9 +53,6 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
         <h2 class="h2tri">Triage des articles par catégories </h2>
         <section class="categorieHidden">
 
-            <!-- Button -->
-
-
             <form action="" method="GET">
 
                 <div class="wrap">

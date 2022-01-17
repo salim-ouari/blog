@@ -22,8 +22,6 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
 
             // $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
             echo $msg = 'article bien posté';
-            var_dump($requete2);
-            var_dump($id_user);
         } else {
 
             echo $msg = 'veuillez remplir tout les champs';
