@@ -51,7 +51,7 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'hugo-toumi3', 'Seennaa13005', 'hugo-toumi_blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM categories") or die(mysqli_error($mysqli));
 
         ?>

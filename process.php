@@ -14,7 +14,7 @@
         $email = $_POST['email'];
         $id_droits = $_POST['id_droits'];
 
-        $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+        $mysqli = new mysqli('localhost', 'hugo-toumi3', 'Seennaa13005', 'hugo-toumi_blog');
         $mysqli->query("INSERT INTO utilisateurs (login, password, email, id_droits) VALUES('$login', '$password', '$email', '$id_droits')");
 
         $_SESSION['message'] = "Le compte est enregistré";
@@ -25,7 +25,7 @@
 
     if (isset($_GET['delete'])) {
         $id = $_GET['delete'];
-        $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+        $mysqli = new mysqli('localhost', 'hugo-toumi3', 'Seennaa13005', 'hugo-toumi_blog');
         $mysqli->query("DELETE FROM utilisateurs WHERE id=$id");
 
         $_SESSION['message'] = "Le compte est bel et bien supprimé";
@@ -37,7 +37,7 @@
     if (isset($_GET['edit'])) {
         $id = $_GET['edit'];
         $update = true;
-        $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+        $mysqli = new mysqli('localhost', 'hugo-toumi3', 'Seennaa13005', 'hugo-toumi_blog');
         $result = $mysqli->query("SELECT * FROM utilisateurs WHERE id=$id");
 
         $row = $result->fetch_array();
@@ -54,7 +54,7 @@
         $password = $_POST['password'];
         $email = $_POST['email'];
         $id_droits = $_POST['id_droits'];
-        $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
+        $mysqli = new mysqli('localhost', 'hugo-toumi3', 'Seennaa13005', 'hugo-toumi_blog');
         $mysqli->query("UPDATE utilisateurs SET login='$login', password='$password', email= '$email', id_droits='$id_droits' WHERE id=$id");
 
         $_SESSION['message'] = "Les infos sont belles est bien modifiées";

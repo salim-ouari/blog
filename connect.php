@@ -1,7 +1,7 @@
 <?php
 
 // ********BDD-PLESK****************
-$bdd = mysqli_connect('localhost', 'salim-ouari3', "Zidane07@", 'salim-ouari_blog');
+$bdd = mysqli_connect('localhost', 'hugo-toumi3', "Seennaa13005", 'hugo-toumi_blog');
 
 
 //   *******BDD-LOCAL (MSQLI) ****************
