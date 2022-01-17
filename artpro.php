@@ -54,7 +54,7 @@ if (isset($_POST['update'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
     $id_categorie = $_POST['id_categorie'];
     $date = $_POST['date'];
-    $mysqli = new mysqli("localhost", "root", "", "blog");
+    $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog');
     $mysqli->query("UPDATE articles SET article='$article', id_utilisateur='$id_utilisateur', id_categorie= '$id_categorie', date='$date' WHERE id='$id'") or die($mysqli->error);
 
 

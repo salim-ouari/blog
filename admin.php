@@ -37,7 +37,6 @@
 
     <?php
 
-
     if (isset($_SESSION['message'])) : ?>
 
         <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
@@ -52,7 +51,7 @@
     <?php endif ?>
 
     <div class="container-fluid">
-        <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
+        <?php $mysqli = new mysqli('localhost', 'salim-ouari3', 'Zidane07@', 'salim-ouari_blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
         //pre_r($result);
         ?>
