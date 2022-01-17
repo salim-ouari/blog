@@ -26,7 +26,7 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
             $requete2 = mysqli_query($bdd, "INSERT INTO articles(article,id_utilisateur,id_categorie,date) VALUES ('$article', '$id_user',
             '$cat', NOW())");
             // *************recup du résultat et affiche dans articles.php**************
-            $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
+            // $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
 
             header("Location: articles.php");
 
