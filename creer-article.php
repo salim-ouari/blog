@@ -28,9 +28,9 @@ if (isset($_SESSION['user']['id_droits']) == 1337 || isset($_SESSION['user']['id
             // *************recup du résultat et affiche dans articles.php**************
             $resultat = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
 
-            // header("Location: articles.php");
+            header("Location: articles.php");
 
-            echo $msg = 'Article bien posté';
+            exit();
         } else {
 
             echo $msg = 'Veuillez remplir tout les champs';
