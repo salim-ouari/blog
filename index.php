@@ -42,37 +42,15 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
     <?php include 'header.php'; ?>
 
     <main>
-        <h2 class="h2index">Découvrez vite <a class="a-index" href="articles.php"> les articles</a> de notre blog ! </h2>
 
-        <section class="container">
-
-            <?php foreach ($result as $key) {
-            ?>
-
-                <div class="box">
-
-                    <div class="divimg"><img src="asset/butt.jpg" alt="image clap movies"></div>
-
-                    <h3 class="h3ny">article</h3>
-                    <div class="paratitre">
-
-                        <p><?= substr($key['article'], 0, 200) ?></p>
-                        <p><?= $key['date'] ?></p>
-                        <p><?php echo '<a href="article.php?id=' . $key['id'] . '"">Lire article</a>'; ?></p>
-                    </div>
-                </div>
-
-            <?php    } ?>
-        </section>
-    </main>
-
-    <?php include 'footer.php'; ?>
     <div class="logo">
 
             <div class="Netflix">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span id ="span-net"></span>
+                <span id ="span-net"></span>
+                <span id ="span-net"></span>
+            </div>
+
             </div>
 
             <h3 class="h3index">Our Blog</h3>
@@ -93,17 +71,30 @@ $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
                 
             </div>
         </div>
+        <h2 class="h2index">Découvrez vite <a class="a-index" href="articles.php"> les articles</a> de notre blog ! </h2>
 
+        <section class="container">
 
+            <?php foreach ($result as $key) {
+            ?>
 
+                <div class="box">
 
-        
-        <h2  class="h2index">Découvrez vite <a class="a-index" href="articles.php"> les articles</a> de notre blog ! </h2>
+                    <div class="divimg"><img src="asset/butt.jpg" alt="image clap movies"></div>
 
-        
+                    <h3 class="h3ny">New Article</h3>
+                    <div class="paratitre">
+
+                        <p><?= substr($key['article'], 0, 200) ?></p>
+                        <p><?= $key['date'] ?></p>
+                        <p><?php echo '<a id ="lien-article" href="article.php?id=' . $key['id'] . '"">Lire article</a>'; ?></p>
+                    </div>
+                </div>
+
+            <?php    } ?>
+        </section>
     <?php include 'footer.php'; ?>
-
-
+ </main>
 </body>
 
 </html>

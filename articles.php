@@ -50,22 +50,22 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 <body>
     <?php require('header.php') ?>
     <main id="main_article">
-        <h2>Tri les articles par catégories </h2>
+        <h2 class="h2tri">Triage des articles par catégories </h2>
         <section class="categorieHidden">
 
-        <!-- Button -->
+            <!-- Button -->
 
 
             <form action="" method="GET">
 
-            <div class="wrap">
+                <div class="wrap">
 
-                <?php foreach ($result_cat as $categorie) { ?>
-                    <button class="btn-1" name="categorie" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
-                <?php } ?>
+                    <?php foreach ($result_cat as $categorie) { ?>
+                        <button class="btn-1" name="categorie" value="<?php echo $categorie['nom']; ?> "><?php echo $categorie['nom']; ?> </button>
+                    <?php } ?>
 
-                <input type='hidden' name='page' value='1'>
-                <button type='submit' name="submit" class="btn-1"><a href="articles.php"></a>Tout</button>
+                    <input type='hidden' name='page' value='1'>
+                    <button type='submit' name="submit" class="btn-1"><a href="articles.php"></a>Tout</button>
 
             </form>
 
@@ -94,10 +94,10 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                         <div class=" box">
                             <div class="divimg"><img src="asset//butt.jpg" alt="image clap movies"></div>
                             <div class="paratitre">
-                                <h3 class="h3ny">new art</h3>
+                                <h3 class="h3ny">New Article</h3>
                                 <p><?= substr($result[$i]['article'], 0, 200) ?>...</p>
                                 <p><?= $result[$i]['date'] ?></p>
-                                <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
+                                <div><?php echo '<a class="a-art" href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
                             </div>
                         </div>
                     <?php
@@ -110,10 +110,10 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                         <div class=" box">
                             <div class="divimg"><img src="asset/butt.jpg" alt="image clap movies"></div>
                             <div class="paratitre">
-                                <h3 class="h3ny">new art</h3>
+                                <h3 class="h3ny">New Article</h3>
                                 <p><?= substr($result[$i]['article'], 0, 200) ?></p>
                                 <p><?= $result[$i]['date'] ?></p>
-                                <div><?php echo '<a href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
+                                <div><?php echo '<a class="a-art" href="article.php?id=' . $result[$i]['id'] . '">Lire article</a>'; ?></div>
                             </div>
                         </div>
 
@@ -133,10 +133,10 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     <div class="box">
                         <div class="divimg"><img src="asset/butt.jpg" alt="image clap movies"></div>
                         <div class="paratitre">
-                            <h3 class="h3ny">new art</h3>
+                            <h3 class="h3ny">New Article</h3>
                             <p><?= substr($article['article'], 0, 200) ?></p>
                             <p><?= $article['date'] ?></p>
-                            <div><?php echo '<a href="article.php?id=' . $article['id'] . '"">Lire article</a>'; ?></div>
+                            <div><?php echo '<a class="a-art" href="article.php?id=' . $article['id'] . '"">Lire article</a>'; ?></div>
                             <input type="hidden" value=<?php $article['id'] ?>>
                         </div>
                     </div> <?php
@@ -147,7 +147,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
             </section>
             <div class="pagination">
-                
+
                 <?php
                 //****************************savoir sur qu'elle page nous sommes*************************** 
                 if (isset($_GET['categorie'])) {
@@ -167,7 +167,7 @@ $result_cat = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     WHERE categories.nom = '$page_categorie' ORDER BY date DESC LIMIT $debut_cat");
 
                     $articles_cat = mysqli_fetch_all($sql_articles_cat, MYSQLI_ASSOC);
-                    var_dump($articles_cat);
+
 
                     for ($i = 1; $i <= $nbr_page_cat; $i++) {
                         if ($page != $i)

@@ -61,7 +61,7 @@ if (isset($requeteinsert)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Article</title>
 </head>
 
 <body>
@@ -73,7 +73,7 @@ if (isset($requeteinsert)) {
         <div id="article">
             <img src="asset/clap.jpg" alt="clap-réalisateur">
             <span>
-                <h1 id="h1_art">Dicaprio</h1>
+                <h1 id="h1_art">Article</h1>
                 <p class="p_article">Article posté par : <?= $result_art_user['login'] ?></p>
                 <p class="p_article">Le: <?= $result_art['date'] ?> à <?= $result_art['heure'] ?> </p>
                 <p class="p_article">Catégorie: <?= $result_art_cat['nom'] ?> </p>
@@ -106,15 +106,15 @@ if (isset($requeteinsert)) {
             </table>
         </div>
 
-        <h2>Laisser un commentaire sur l'article</h2>
+
         <div class="error"><?php echo "<p>" . $error . '</p>'; ?></div>
         <div class="form_com">
             <form class="com_art" action="" method="post">
-                <label for="commentaire">Poster votre commentaire sur l'article ici</label>
-                <textarea name="commentaire" placeholder="écrivez votre commentaire..."></textarea>
+                <label for="commentaire" class="labeltitre">Fais nous part de ta belle plume !</label>
+                <textarea name="commentaire" class="area-comm"  placeholder="Laisse nous ton commentaire..." required></textarea>
 
 
-                <button type="submit" name="submit" id="comm">Poster</button>
+                <button type="submit" name="submit" id="buttoncomm">Poster</button>
             </form>
 
         </div>

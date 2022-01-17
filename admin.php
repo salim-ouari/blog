@@ -32,9 +32,10 @@
 </nav>
     
     
-    <?php require_once 'process.php'; ?>
+    <?php require_once ('process.php'); ?>
 
     <?php
+
 
     if (isset($_SESSION['message'])) : ?>
 
@@ -49,7 +50,7 @@
 
     <?php endif ?>
 
-    <div class="container">
+    <div class="container-fluid">
         <?php $mysqli = new mysqli('localhost', 'root', '', 'blog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM utilisateurs") or die(mysqli_error($mysqli));
         //pre_r($result);

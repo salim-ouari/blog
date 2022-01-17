@@ -76,9 +76,9 @@
 
                 <li><a href="articles.php?categorie=cinéma+&page=1&submit=">Cinéma</a></li>
 
-                <li><a href="articles.php?categorie=series+&page=1&submit=">Series</a></li>
+                <li><a href="articles.php?categorie=séries+&page=1&submit=">Séries</a></li>
 
-                <li><a href="articles.php?categorie=anim+&page=1&submit=">Anims</a></li>
+                <li><a href="articles.php?categorie=anims+&page=1&submit=">Anims</a></li>
             </ul>
 
         </ul>
