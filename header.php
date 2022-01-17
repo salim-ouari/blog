@@ -62,18 +62,17 @@
 
                 <li><i class="fa fa-book" aria-hidden="true"></i>Categories</li>
 
-                <ul id="listcat">
+                <ul id="listcat" style="padding-left: 10%;">
+
                     <li><a href="articles.php">Tous</a></li>
 
-                    <li><a href="articles.php?categorie=cinéma+&page=1&submit=">Cinéma</a></li>
+                    <li><a href="articles.php?categorie=cinéma+&amp;page=1&amp;submit=">Cinéma</a></li>
 
-                    <li><a href="articles.php?categorie=séries+&page=1&submit=">Séries</a></li>
+                    <li><a href="articles.php?categorie=séries+&amp;page=1&amp;submit=">Séries</a></li>
 
-                    <li><a href="articles.php?categorie=animation+&page=1&submit=">Anims</a></li>
-                    
+                    <li><a href="articles.php?categorie=animation+&amp;page=1&amp;submit=">Anims</a></li>
+
                 </ul>
-
-            </ul>
         </nav>
         </nav>
     </header>
